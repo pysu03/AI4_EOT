@@ -1,0 +1,141 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    <title>Register Form</title>
+
+    <!-- 부트스트랩 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <h1>Register Form</h1>
+
+<div class="container">
+    <div class="starter-template">
+        <p class="lead">
+            Please fill in the blank.<br>
+        </p>
+
+
+
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+
+
+        <div class="input-group">
+            <label>ID      </label><input type="text" name="user_id" id="user_id"/>
+            <button id="CheckBtn">중복확인</button><br/>
+
+            <label>Password</label><input type="password"  name="user_pwd"   id="user_pwd"/><br/>
+            <label>name</label><input type="text" class="form-control" placeholder="이름" aria-describedby="basic-addon2"><br/>
+            <label>birthday</label><input type="text" class="form-control" placeholder="0000-00-00" aria-describedby="basic-addon2"><br/>
+
+            <label>email</label><input type="text" class="form-control" placeholder="이메일" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2">@</span>
+                <select id="emailDrop">
+                        <option>직접입력</option>
+                        <option>naver.com</option>
+                        <option>gmail.com</option>
+                        <option>hanmail.net</option>
+                </select><span class="caret"></span><br/>
+
+            <label>address</label><span class="input-group-addon" id="basic-addon3"></span>
+                <select id="cityDrop">
+                        <option>시/도</option>
+                        <option>서울특별시</option>
+                        <option>경기도</option>
+                </select><span class="caret"></span>
+
+                <select id="guDrop">
+                        <option>시/군/구</option>
+                </select><span class="caret"></span>
+
+                <select id="dongDrop">
+                        <option>읍/면/동</option>
+                </select><span class="caret"></span><br/>
+
+            <label>mobile</label><input type="text" class="form-control" placeholder="000-0000-0000" aria-describedby="basic-addon2"><br/>
+        </div>
+        </form>
+            <button type="submit" class="btn btn-primary">등록</button>
+    </div>
+</div>
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    seoulAry  = ['강남구', '강동구', '강북구']
+    gyunggiAry = ['가평군', '고양시 덕양구']
+
+    seoul01Ary = ['개포동', '논현동', '대치동']
+    seoul02Ary = ['강일동', '고덕동', '길동']
+    seoul03Ary = ['미아동', '번동', '수유동']
+
+    gyunggi01Ary = ['가평읍', '북면', '상면']
+    gyunggi02Ary = ['강매동', '고양동', '관산동']
+
+    function display01(ary) {
+        txt = '<option>선택해주세요</option>';
+        $.each(ary, function(idx, data) {
+            txt += '<option>'+data+'</option>';
+        })
+        $('#guDrop').empty().html(txt)
+    }
+
+    function display02(ary) {
+        txt = '<option>선택해주세요</option>';
+        $.each(ary, function(idx, data) {
+            txt += '<option>'+data+'</option>';
+        })
+        $('#dongDrop').empty().html(txt)
+    }
+
+
+
+    $(document).ready(function() {
+        $('#CheckBtn').click(function(){
+            alert('사용가능')
+        })
+
+        $('#cityDrop').change(function() {
+            cityDrop = $('#cityDrop').val()
+            if(cityDrop == '서울특별시') {
+                display(seoulAry)
+            }
+            if(cityDrop == '경기도') {
+                display(gyunggiAry)
+            }
+        })
+
+        $('#guDrop').change(function() {
+            guDrop = $('#guDrop').val()
+            if(guDrop == '강남구') {
+                display(seoul01Ary)
+            }
+            if(guDrop == '강동구') {
+                display(seoul02Ary)
+            }
+            if(guDrop == '강북구') {
+                display(seoul03Ary)
+            }
+        })
+</script>
+
+
+</body>
+</html>
