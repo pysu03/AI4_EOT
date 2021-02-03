@@ -36,7 +36,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Signin</title>
+    <title>Login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,26 +59,51 @@
 
 <div class="container">
 
-    <form class="form-signin">
+    <form action="{% url 'loginProc' %}" method="post">
+        {% csrf_token %}
         <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputId" class="sr-only">ID </label>
-        <input type="email" id="inputId" class="form-control" placeholder="ID/Email address" required autofocus></br>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required></br>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label></br>
-            <label>I forgot my id/password</label></br>
-            <a href="{% url 'registerForm' %}" class="text-center">Go to create a new account</a>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
 
+        <table>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" name="user_id" id="inputId" placeholder="ID" required autofocus/></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="user_pwd" id="inputPwd" placeholder="Password" required></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" value="remember-me"> Remember me</td>
+<!--                저장할 수 있게 만들려면 form name="" action="값 보낼 주소" method="post/get"-->
+            </tr>
+
+            <tr>
+                <td><button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button></td>
+            </tr>
+        </table>
+    </form>
+<table>
+    <tr>
+        <td>I forgot my id/password</td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'registerForm' %}" class="text-center">Go to create a new account</a></td>
+    </tr>
+</table>
 </div> <!-- /container -->
 
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+</script>
+
 </body>
 </html>

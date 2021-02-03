@@ -28,48 +28,77 @@
             Please fill in the blank.<br>
         </p>
 
-
-
-        <form action="{% url 'register' %}" method="post">
+        <form name="signup" action="{% url 'register' %}" method="post">
             {% csrf_token %}
 
+            <table>
+                <tr>
+<!--            <input type="text" name="" value="" placeholder="입력란 설명" maxlength="입력가능 글자 수" />-->
+                    <td>ID</td>
+                    <td><input type="text" name="user_id" id="user_id" maxlength="20" placeholder="아이디" required/>
+                        <input type="button" value="중복확인" id="checkBtn"/></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="user_pwd" id="user_pwd" maxlength="20" placeholder="비밀번호" required/></td>
+                </tr>
+                <tr>
+                    <td>Password Check </td>
+                    <td><input type="password" name="user_pwd2" id="user_pwd2" maxlength="20" placeholder="비밀번호 확인" required/></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="user_name" placeholder="이름"/></td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td><input type="date" name="birthday" value="sysdate"/></td>
+                </tr>
+                <tr>
+                    <td>E-mail</td>
+                    <td><input type="email" name="email" placeholder="이메일"/>
+<!--                        @<select id="emailDrop" name="emailDrop">-->
+<!--                            <option value="1">직접입력</option>-->
+<!--                            <option value="2">naver.com</option>-->
+<!--                            <option value="3">gmail.com</option>-->
+<!--                            <option value="4">hanmail.net</option>-->
+<!--                        </select>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <select id="cityDrop" name="city">
+                        <option value="선택">시/도</option>
+                        <option value="서울">서울</option>
+                        <option value="경기">경기</option>
 
-        <div class="input-group">
-            <label>ID      </label><input type="text" name="user_id" id="user_id"/>
-            <button id="CheckBtn">중복확인</button><br/>
+                        </select>
 
-            <label>Password</label><input type="password"  name="user_pwd"   id="user_pwd"/><br/>
-            <label>name</label><input type="text" class="form-control" placeholder="이름" aria-describedby="basic-addon2"><br/>
-            <label>birthday</label><input type="text" class="form-control" placeholder="0000-00-00" aria-describedby="basic-addon2"><br/>
+                        <select id="guDrop" name="gu">
+                        <option value="선택">시/군/구</option>
+                        </select>
 
-            <label>email</label><input type="text" class="form-control" placeholder="이메일" aria-describedby="basic-addon2">
-            <span class="input-group-addon" id="basic-addon2">@</span>
-                <select id="emailDrop">
-                        <option>직접입력</option>
-                        <option>naver.com</option>
-                        <option>gmail.com</option>
-                        <option>hanmail.net</option>
-                </select><span class="caret"></span><br/>
-
-            <label>address</label><span class="input-group-addon" id="basic-addon3"></span>
-                <select id="cityDrop">
-                        <option>시/도</option>
-                        <option>서울특별시</option>
-                        <option>경기도</option>
-                </select><span class="caret"></span>
-
-                <select id="guDrop">
-                        <option>시/군/구</option>
-                </select><span class="caret"></span>
-
-                <select id="dongDrop">
-                        <option>읍/면/동</option>
-                </select><span class="caret"></span><br/>
-
-            <label>mobile</label><input type="text" class="form-control" placeholder="000-0000-0000" aria-describedby="basic-addon2"><br/>
-        </div>
+                        <select id="dongDrop" name="dong">
+                        <option value="선택">읍/면/동</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td>
+<!--                        <input type="tel" name="phone1" maxlength="3"/> - -->
+<!--                        <input type="tel" name="phone2" maxlength="4"/> - -->
+<!--                        <input type="tel" name="phone3" maxlength="4"/>-->
+                        <input type="tel" name="mobile" placeholder="000-0000-0000"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="등록"/></td>
+                </tr>
+            </table>
         </form>
-            <button type="submit" class="btn btn-primary">등록</button>
     </div>
 </div>
 
@@ -78,63 +107,66 @@
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 <script src="js/bootstrap.min.js"></script>
 
-<script>
-    seoulAry  = ['강남구', '강동구', '강북구']
-    gyunggiAry = ['가평군', '고양시 덕양구']
+    <script>
+        seoulAry  = ['강남구', '강동구', '강북구']
+        gyunggiAry = ['가평군', '고양시 덕양구']
 
-    seoul01Ary = ['개포동', '논현동', '대치동']
-    seoul02Ary = ['강일동', '고덕동', '길동']
-    seoul03Ary = ['미아동', '번동', '수유동']
+        seoul01Ary = ['개포동', '논현동', '대치동']
+        seoul02Ary = ['강일동', '고덕동', '길동']
+        seoul03Ary = ['미아동', '번동', '수유동']
 
-    gyunggi01Ary = ['가평읍', '북면', '상면']
-    gyunggi02Ary = ['강매동', '고양동', '관산동']
+        gyunggi01Ary = ['가평읍', '북면', '상면']
+        gyunggi02Ary = ['강매동', '고양동', '관산동']
 
-    function display01(ary) {
-        txt = '<option>선택해주세요</option>';
-        $.each(ary, function(idx, data) {
-            txt += '<option>'+data+'</option>';
+        function display01(ary) {
+            txt = '<option>선택해주세요</option>';
+            $.each(ary, function(idx, data) {
+                txt += '<option>'+data+'</option>';
+            })
+            $('#guDrop').empty().html(txt)
+        }
+
+        function display02(ary) {
+            txt = '<option>선택해주세요</option>';
+            $.each(ary, function(idx, data) {
+                txt += '<option>'+data+'</option>';
+            })
+            $('#dongDrop').empty().html(txt)
+        }
+
+
+
+        $(document).ready(function() {
+
+            $('#cityDrop').change(function() {
+                cityDrop = $('#cityDrop').val()
+                if(cityDrop == '서울특별시') {
+                    display01(seoulAry)
+                }
+                if(cityDrop == '경기도') {
+                    display01(gyunggiAry)
+                }
+            })
+
+            $('#guDrop').change(function() {
+                guDrop = $('#guDrop').val()
+                if(guDrop == '강남구') {
+                    display02(seoul01Ary)
+                }
+                if(guDrop == '강동구') {
+                    display02(seoul02Ary)
+                }
+                if(guDrop == '강북구') {
+                    display02(seoul03Ary)
+                }
+            })
+
+            $('#checkBtn').click(function(){
+                alert('사용가능')
+            })
         })
-        $('#guDrop').empty().html(txt)
-    }
 
-    function display02(ary) {
-        txt = '<option>선택해주세요</option>';
-        $.each(ary, function(idx, data) {
-            txt += '<option>'+data+'</option>';
-        })
-        $('#dongDrop').empty().html(txt)
-    }
-
-
-
-    $(document).ready(function() {
-        $('#CheckBtn').click(function(){
-            alert('사용가능')
-        })
-
-        $('#cityDrop').change(function() {
-            cityDrop = $('#cityDrop').val()
-            if(cityDrop == '서울특별시') {
-                display(seoulAry)
-            }
-            if(cityDrop == '경기도') {
-                display(gyunggiAry)
-            }
-        })
-
-        $('#guDrop').change(function() {
-            guDrop = $('#guDrop').val()
-            if(guDrop == '강남구') {
-                display(seoul01Ary)
-            }
-            if(guDrop == '강동구') {
-                display(seoul02Ary)
-            }
-            if(guDrop == '강북구') {
-                display(seoul03Ary)
-            }
-        })
-</script>
+    </script>
 
 
 </body>
