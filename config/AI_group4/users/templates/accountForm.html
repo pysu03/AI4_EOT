@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Account Form</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+</head>
+<body>
+    <h1>회원가입</h1>
+
+<div class="register-page">
+    <div class="register-cont">
+        <p class="lead">
+            내용을 입력해주세요.<br>
+        </p>
+
+        <form action="#" method="post">
+        {% csrf_token %}
+            <p>아이디 : </p>
+            <input name="user_id" type="text"><br/>
+            <p>비밀번호 : </p>
+            <input name="user_pwd" type="password"><br/>
+            <p>이름 : </p>
+            <input name="user_name" type="text"><br/>
+            <p>생년월일 : </p>
+            <input name="user_birthday" type="text"><br/>
+            <p>전화번호 : </p>
+            <input name="user_mobile" type="text"><br/>
+            <p>이메일 : </p>
+            <input name="user_email" type="text"><br/>
+            <p>주소 : </p>
+            <input name="user_address" type="text"><br/>
+
+            <input type="submit" value="회원가입">
+
+
+        </div>
+        </form>
+
+    </div>
+</div>
+
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+<!--    -->
+<!--    <script src="js/bootstrap.min.js"></script>-->
+
+<script>
+    seoul  = ['강남구', '강서구', '서초구', '송파구']
+    busan = ['중구', '서구', '동구', '영도구', '부산진구', '동래구', '남구', '북구', '해운대구', '사하구', '금정구', '강서구', '연제구', '수영구', '사상구', '기장군']
+
+    seoul01 = ['논현동', '대치동', '역삼동', '삼성동']
+    seoul02 = ['공항동', '염창동', '화곡본동']
+    seoul03 = ['양재동', '서초1동', '서초2동']
+    seoul04 = ['가락본동', '석촌동', '잠실본동', '풍납동']
+
+    //중구
+    busan01 = ['중앙동', '동광동', '대청동']
+    busan02 = ['초장동', '충무동', '부민동']
+    busan03 = ['초량제1동', '초량제2동', '초량제3동', '초량제6동','수정제1동', '수정제2동', '수정제4동', '수정제5동', '좌천동', '범일제1동', '범일제2동', '범일제5동']
+    busan04 = ['남향동', '영선제1동']
+    busan05 = ['부전제1동', '개금제1동']
+    //동래구
+    busan06 = ['수민동', '명륜동']
+    busan07 = ['남항동', '청학제1동', '청학제2동']
+    busan08 = ['구포제1동', '금곡동']
+    busan09 = ['송정동', '중제1동', '반송제2동']
+    busan10 = ['괴정제1동', '괴정제4동']
+    //금정구
+    busan11 = ['서제1동', '서제2동']
+    busan12 = ['대저1동', '대저2동']
+    busan13 = ['거제제1동', '거제제2동', '연산제4동']
+    busan14 = ['남천제1동', '광안제1동', '광안제2동']
+    busan15 = ['삼락동', '감전동']
+    busan16 = ['기장읍', '장안읍', '정관읍']
+
+
+    function display01(ary) {
+        txt = '<option>선택해주세요</option>';
+        $.each(ary, function(idx, data) {
+            txt += '<option>'+data+'</option>';
+        })
+        $('#fullCity').empty().html(txt)
+    }
+
+    function display02(ary) {
+        txt = '<option>선택해주세요</option>';
+        $.each(ary, function(idx, data) {
+            txt += '<option>'+data+'</option>';
+        })
+        $('#dong').empty().html(txt)
+    }
+
+    $(document).ready(function() {
+        $('#idCheckBtn').click(function(){
+            alert('중복확인 버튼 눌렀습니다.')
+        })
+
+        $('#city').change(function() {
+            city = $('#city').val()
+            if(city == '서울특별시') {display(seoul)}
+            if(city == '부산광역시') {display(busan)}
+
+        })
+        $('#fullCity').change(function() {
+            fullCity = $('#fullCity').val()
+            if(fullCity == '강남구') {display(seoul01)}
+            if(fullCity == '강서구') {display(seoul02)}
+            if(fullCity == '서초구') {display(seoul03)}
+            if(fullCity == '송파구') {display(seoul03)}
+        })
+        $('#fullCity').change(function() {
+            fullCity = $('#fullCity').val()
+            if(fullCity == '중구') {display(busan01)}
+            if(fullCity == '서구') {display(busan02)}
+            if(fullCity == '동구') {display(busan03)}
+            if(fullCity == '영도구') {display(busan04)}
+            if(fullCity == '부산진구') {display(busan05)}
+            if(fullCity == '동래구') display(busan06)}
+            if(fullCity == '남구') {display(busan07)}
+            if(fullCity == '북구') {display(busan08)}
+            if(fullCity == '해운대구') {display(busan09)}
+            if(fullCity == '사하구') {display(busan10)}
+            if(fullCity == '금정구') {display(busan11)}
+            if(fullCity == '강서구') {display(busan12)}
+            if(fullCity == '연제구') {display(busan13)}
+            if(fullCity == '수영구') {display(busan14)}
+            if(fullCity == '사상구') {display(busan15)}
+            if(fullCity == '기장군') {display(busan16)}
+        })
+
+</script>
+
+
+</body>
+</html>
