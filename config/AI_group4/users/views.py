@@ -1,16 +1,24 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import User
-
-from .models import *
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
-
 
 def index(request):
     return render(request, 'index.html')
 
 def loginForm(request):
+    if request.method == "POST":
+        user_id = request.POST["user_id"]
+        user_pwd = request.POST["user_pwd"]
+        user = authenticate(user_id=user_id, user_pwd=user_pwd)
+        if user is not None :
+            print("인증성공")
+            login(request, user)
+        else :
+            print("인증실패")
+
     return render(request, 'login.html')
 
 def accountForm(request):

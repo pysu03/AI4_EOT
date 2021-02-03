@@ -82,11 +82,11 @@ body {
 <form action="#" method="post">
   {% csrf_token %}
   <div class="form-group has-feedback">
-    <input type="text" name="id" class="form-control" placeholder="USER ID"/>
+    <input name="user_id" type="text" class="form-control" placeholder="USER ID"/>
     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
   </div>
   <div class="form-group has-feedback">
-    <input type="password" name="pwd" class="form-control" placeholder="Password"/>
+    <input name="user_pwd" type="password" class="form-control" placeholder="Password"/>
     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
   </div>
   <div class="row">
