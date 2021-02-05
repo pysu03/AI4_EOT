@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <h1>옷추천 서비스</h1>
+
+
+    <h2>지역을 선택하세요</h2>
+        <select id=region name=region>
+            <option value="선택">city</option>
+            <option value="Seoul">서울</option>
+            <option value="Busan">부산</option>
+            <option value="Jinju">진주</option>
+        </select>
+
+
+    <h2><div class = 'weather'>
+        <div class = 'CurrIcon'></div>
+        <div class = 'CurrTemp'></div>
+        <div class = 'City'></div>
+    </h2></div>
+
+    <h2>오늘의 추천의상은 ?</h2>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script>
+
+
+        $(document).ready(function() {
+            let weathericon = {
+                '01' : 'fas fa-sun',
+                '02' : 'fas fa-cloud-sun',
+                '03' : 'fas fa-cloud',
+                '04' : 'fas fa-cloud-meatball',
+                '09' : 'fas fa-cloud-sun-rain',
+                '10' : 'fas fa-cloud-showers-heavy',
+                '11' : 'fas fa-poo-storm',
+                '13' : 'fas fa-snowflake',
+                '50' : 'fas fa-fa-smog',
+            };
+
+            let region = $('#region').val();
+
+            $.ajax({
+                url : `http://api.openweathermap.org/data/2.5/weather?q=${region}&appid=89f01b74b3f891c0789c0beb732223bc&units=metric`,
+                dataType : 'json',
+                type : 'GET',
+                success : function(data){
+                    var $Icon = (data.weather[0].icon).substr(0,2);
+                    var $Temp = Math.floor(data.main.temp) + '°C' ;
+                    var $city = data.name;
+
+
+                     $('.CurrIcon').append('<i class="' + weathericon[$Icon] +'"></i>');
+                     $('.CurrTemp').prepend($Temp);
+                     $('.City').append($city);
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>
