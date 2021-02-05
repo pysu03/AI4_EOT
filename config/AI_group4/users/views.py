@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import *
@@ -21,6 +22,18 @@ def front(request) :
     return render(request, 'front.html')
 
 
+=======
+from django.shortcuts import render, redirect
+from .models import *
+from django.contrib.auth.models import User
+from django.contrib import auth
+
+# Create your views here.
+# 회원가입
+def index(request):
+    return render(request, 'index.html')
+
+>>>>>>> Stashed changes
 def signup(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     if request.method == 'POST':
@@ -34,7 +47,10 @@ def signup(request):
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     return render(request, 'signup.html')
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 # 로그인
 def login(request):
     # login으로 POST 요청이 들어왔을 때, 로그인 절차를 밟는다.
@@ -69,3 +85,11 @@ def logout(request):
 
     # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
     return render(request, 'login.html')
+<<<<<<< Updated upstream
+=======
+
+def weather(request):
+
+
+    return render(request, 'weather.html')
+>>>>>>> Stashed changes
