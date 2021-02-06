@@ -5,7 +5,7 @@ from .forms import BaseBulletinBoard
 # Create your views here.
 
 def boardView(request):
-    template_name = 'bulletin_board.html'
+    template_name = 'bulletin/bulletin_board.html'
     board_object = Board.objects.all()
     context = {
         'boardobject':board_object
@@ -13,10 +13,10 @@ def boardView(request):
     return render(request, template_name, context)
 
 def bulletin(request):
-    return render(request, 'bulletin_base.html')
+    return render(request, 'bulletin/bulletin_base.html')
 
 def index(request):
-    template_name = 'index.html'
+    template_name = 'bulletin/index.html'
     board_object = Board.objects.all()
     context = {
         'boardobject':board_object
@@ -24,15 +24,15 @@ def index(request):
     return render(request, template_name, context)
 
 def boardWrite(request):
-    return render(request, 'bulletin_base.html')
+    return render(request, 'bulletin/bulletin_base.html')
 
 def calendar(request):
-    return render(request, 'calendar.html')
+    return render(request, 'bulletin/calendar.html')
 
 
 
 def writePageView(request):
-    template_name = 'bulletin_write.html'
+    template_name = 'bulletin/bulletin_write.html'
     if request.method == 'POST':
         form = BaseBulletinBoard(request.POST)
         if form.is_vaild():

@@ -6,7 +6,7 @@ from .models import *
 
 def index(request):
     print('request index - ')
-    return render(request, 'index.html')
+    return render(request, 'recommends/index.html')
 
 def recommendForm(request):
-    return render(request, 'recommendForm.html')
+    return render(request, 'recommends/recommendForm.html')

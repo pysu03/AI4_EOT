@@ -6,7 +6,7 @@ urlpatterns = [
     path('bulletin/', views.bulletin, name='bulletin'),
     path('view/', views.boardView, name='boardView'),
     # path('view/', boardView),
-    path('index/', views.index, name='index'),
+    path('', views.index, name='index'),
     path('write/', views.writePageView, name='writePageView'),
     path('calendar/', views.calendar, name='canlendar'),
 ]

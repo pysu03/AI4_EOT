@@ -1,51 +1,3 @@
-<<<<<<< HEAD
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>태풍의 눈</title>-->
-<!--</head>-->
-
-<!--<body>-->
-
-<!--{% include "navbar.html" %}-->
-
-
-<!--</body>-->
-<!--</html>-->
-
-
-
-
-{% load static %}
-
-
-<html lang="ko">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-    <!-- pybo CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <title>Hello, pybo!</title>
-</head>
-<body>
-{% include "navbar.html" %}
-<!-- 기본 템플릿 안에 삽입될 내용 Start -->
-{% block content %}
-{% endblock %}
-<!-- 기본 템플릿 안에 삽입될 내용 End -->
-<!-- jQuery JS -->
-<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="{% static 'bootstrap.min.js' %}"></script>
-</body>
-</html>
-=======
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -225,24 +177,21 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
     <script>
-
+/*
         $(document).ready(function() {
             $('#loginBtn').click(function() {
                 alert('loginForm going')
 
-                location.href = "{% url 'login' %}"
-                })
+                    })
 
             $('#registerBtn').click(function(){
                 alert('registerForm going')
 
-                location.href = "{% url 'registerForm' %}"
+
                 })
             })
 
-
+*/
     </script>
 </body>
 </html>
-
->>>>>>> remotes/origin/feature/login/ljh

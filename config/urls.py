@@ -21,5 +21,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('weathers/', include('weathers.urls')),
     path('bulletin/', include('bulletin.urls')),
-    path('recommends/', include('recommands.urls')),
+    path('recommends/', include('recommends.urls')),
 ]

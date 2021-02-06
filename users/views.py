@@ -9,7 +9,7 @@ from .forms import UserCreationForm
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'users/index.html')
 
 
 # 회원 가입
@@ -21,7 +21,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             return redirect('/users')
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'users/signup.html', {'form': form})
     # # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     # if request.method == 'POST':
     #     # password와 confirm에 입력된 값이 같다면
@@ -54,10 +54,10 @@ def login(request):
         # 존재하지 않는다면
         else:
             # 딕셔너리에 에러메세지를 전달하고 다시 login.html 화면으로 돌아간다.
-            return render(request, 'login.html', {'error': 'username or password is incorrect.'})
+            return render(request, 'users/login.html', {'error': 'username or password is incorrect.'})
     # login으로 GET 요청이 들어왔을때, 로그인 화면을 띄워준다.
     else:
-        return render(request, 'login.html')
+        return render(request, 'users/login.html')
 
 
 # 로그 아웃
@@ -68,4 +68,4 @@ def logout(request):
         return redirect('/users')
 
     # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
-    return render(request, 'login.html')
+    return render(request, 'users/login.html')
