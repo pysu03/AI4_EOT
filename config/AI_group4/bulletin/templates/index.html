@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+Nothing much
+
+
+{% for board in boardobject %}
+<div style="border:1px dashed; background-color:#edf0f5; border-radius:15px; padding:10px 20px; margin:30px; ">
+
+
+    <div style="font-size:20px; border:1px; margin:0px; padding:5px 10px;">
+        <input type="checkbox" id="completed" name="completed" value="True">
+        <label style=" font-weight: 1000; border:1px; margin:4px; padding:2px 5px;">
+            {{ board.title }}
+        </label>
+        <!--                <div style="border:1px; padding:10px; background-color:white; margin:4px;">{{ board.title }}</div>-->
+    </div>
+
+
+    <div style="border:1px gray; padding:5px 20px; background-color:white; margin:5px;">
+        <div style="border-bottom: 1px solid gray">
+            <p>{{ board.time }}<br>
+                {{ board.address }}<br></p>
+        </div>
+        <div>
+            <p>{{ board.content }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+</body>
+</html>
