@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -35,6 +36,61 @@ def signup(request):
     # return render(request, 'signup.html')
 
 
+=======
+<<<<<<< Updated upstream
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from .models import *
+import csv
+from django.views.generic import CreateView
+from .forms import UserForm
+from django.contrib.auth import views, models, login
+
+import json
+from django.views import View
+from .models import User
+from django.contrib.auth.models import User
+from django.contrib import auth
+
+
+# Create your views here.
+def index(request):
+    return render(request, 'index.html')
+
+def front(request) :
+    return render(request, 'front.html')
+
+
+=======
+from django.shortcuts import render, redirect
+from .models import *
+from django.contrib.auth.models import User
+from django.contrib import auth
+
+# Create your views here.
+# 회원가입
+def index(request):
+    return render(request, 'index.html')
+
+>>>>>>> Stashed changes
+def signup(request):
+    # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
+    if request.method == 'POST':
+        # password와 confirm에 입력된 값이 같다면
+        if request.POST['password'] == request.POST['confirm']:
+            # user 객체를 새로 생성
+            user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
+            # 로그인 한다
+            auth.login(request, user)
+            return redirect('index')
+    # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
+    return render(request, 'signup.html')
+
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> remotes/origin/feature/login/ys
 # 로그인
 def login(request):
     # login으로 POST 요청이 들어왔을 때, 로그인 절차를 밟는다.
@@ -50,7 +106,11 @@ def login(request):
         if user is not None:
             # 로그인 한다
             auth.login(request, user)
+<<<<<<< HEAD
             return redirect('/users')
+=======
+            return redirect('index')
+>>>>>>> remotes/origin/feature/login/ys
         # 존재하지 않는다면
         else:
             # 딕셔너리에 에러메세지를 전달하고 다시 login.html 화면으로 돌아간다.
@@ -65,7 +125,22 @@ def logout(request):
     # logout으로 POST 요청이 들어왔을 때, 로그아웃 절차를 밟는다.
     if request.method == 'POST':
         auth.logout(request)
+<<<<<<< HEAD
         return redirect('/users')
 
     # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
     return render(request, 'login.html')
+=======
+        return redirect('index')
+
+    # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
+    return render(request, 'login.html')
+<<<<<<< Updated upstream
+=======
+
+def weather(request):
+
+
+    return render(request, 'weather.html')
+>>>>>>> Stashed changes
+>>>>>>> remotes/origin/feature/login/ys

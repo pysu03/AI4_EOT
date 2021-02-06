@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+    <div id="msg"></div><br/>
+    <hr/>
+    <br/>
+    ID <input type="text" name="id" id="id"/>&nbsp;<button id="btn">중복확인</button><p/>
+    <br/>
+    Password <input type="password" pwd="id" id="id"/><p/>
+    <br/>
+    E-mail <input type="text" pwd="id" id="id"/><p/>
+    <hr/>
+    <br/>
+    <label>주소</label>
+    <label>시</label>
+    <select id="city">
+        <option>선택하세요</option>
+        <option>서울</option>
+        <option>부산</option>
+        <option>인천</option>
+    </select>
+    <label>구</label>
+    <select id="Gu-office">
+        <option>선택하세요</option>
+    </select>
+    <hr/>
+    <br/>
+
+
+    <script>
+        seoul  = ['강남구', '서초구', '송파구', '강남구']
+        busan = ['해운대구', '동래', '영도구', '부산진구']
+        incheon = ['연수구', '강화구' , '부평구', '남동구']
+        function display(ary) {
+            txt = '<option>선택해주세요</option>' ;
+            $.each(ary, function (idx, data) {
+                txt += '<option>'+data+'</option>' ;
+            })
+            $('#Gu-office').empty().html(txt)
+        }
+
+
+        $(document).ready(function() {
+            $('#msg').text('회원가입')
+
+            $('#city').change(function () {
+                city = $('#city').val()
+                if(city == '서울'){
+                    display(seoul)
+                }
+                if(city == '부산'){
+                    display(busan)
+                }
+                if(city == '인천'){
+                    display(incheon)
+                }
+            })
+
+
+        })
+    </script>
+</body>
+</html>
