@@ -1,0 +1,19 @@
+<!--<form method="POST" action="{% url 'signup' %}">-->
+<!--    {% csrf_token %}-->
+<!--    <p>email</p>-->
+<!--    <input type="text" name="email">-->
+<!--    <br>-->
+<!--    <p>password</p>-->
+<!--    <input type="text" name="password">-->
+<!--    <br>-->
+<!--    <p>confirm</p>-->
+<!--    <input type="text" name="confirm">-->
+<!--    <br>-->
+<!--    <input type="submit" value="회원가입">-->
+<!--</form>-->
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
