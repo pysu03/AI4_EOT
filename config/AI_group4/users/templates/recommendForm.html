@@ -8,7 +8,6 @@
 <body>
     <h1>옷추천 서비스</h1>
 
-
     <h2>지역을 선택하세요</h2>
         <select id=region name=region>
             <option value="선택">city</option>
@@ -16,7 +15,6 @@
             <option value="Busan">부산</option>
             <option value="Jinju">진주</option>
         </select>
-
 
     <h2><div class = 'weather'>
         <div class = 'CurrIcon'></div>
@@ -48,7 +46,7 @@
             let region = $('#region').val();
 
             $.ajax({
-                url : `http://api.openweathermap.org/data/2.5/weather?q=${region}&appid=89f01b74b3f891c0789c0beb732223bc&units=metric`,
+                url : `http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=89f01b74b3f891c0789c0beb732223bc&units=metric`,
                 dataType : 'json',
                 type : 'GET',
                 success : function(data){

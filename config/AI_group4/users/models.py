@@ -16,5 +16,4 @@ class memRegister(models.Model):
     user_mobile = models.CharField(max_length=12)
 
     def __str__(self):
-        return self.user_id + " / " + self.user_name + " / " + self.user_pwd
-
+        return self.user_id + " / " + self.user_name

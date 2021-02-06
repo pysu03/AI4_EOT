@@ -134,7 +134,11 @@
                         <p class="light-text suggestion">상세 날씨</p>
                         <p class="light-text suggestion">Calender : 달력</p>
                         <p class="light-text suggestion">Function : 기능</p>
+
                         <a href="http://localhost:8000/users/recommendForm/" class="light-text suggestion">오늘 입을 옷을 골라봐요!</a>
+
+                        <p class="light-text suggestion">기타 + Alpha</p>
+
                         <div class="line my-5"></div>
                         <p>Weather Details</p>
                         <div class="row px-3">
@@ -177,18 +181,21 @@
     <script>
 
         $(document).ready(function() {
-            $('#loginBtn').click(function(){
+            $('#loginBtn').click(function() {
                 alert('loginForm going')
+
                 location.href = "{% url 'login' %}"
-            })
-        })
-                $(document).ready(function() {
+                })
+
             $('#registerBtn').click(function(){
-                alert('accountForm going')
+                alert('registerForm going')
+
                 location.href = "{% url 'registerForm' %}"
+                })
             })
-        })
+
 
     </script>
 </body>
 </html>
+
