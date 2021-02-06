@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<<<<<<< HEAD
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,18 +22,97 @@
 </head>
 <body>
     <h1>Register Form</h1>
+=======
+       <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Simple Login Form with Blue Background</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            color: #fff;
+            background: #87cefa;
+        }
+        .form-control {
+            min-height: 41px;
+            background: #f2f2f2;
+            box-shadow: none !important;
+            border: transparent;
+        }
+        .form-control:focus {
+            background: #e2e2e2;
+        }
+        .form-control, .btn {
+            border-radius: 2px;
+        }
+        .login-form {
+            width: 350px;
+            margin: 30px auto;
+            text-align: center;
+        }
+        .login-form h2 {
+            margin: 10px 0 25px;
+        }
+        .login-form form {
+            color: #7a7a7a;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            background: #fff;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+        .login-form .btn {
+            font-size: 16px;
+            font-weight: bold;
+            background: #3598dc;
+            border: none;
+            outline: none !important;
+        }
+        .login-form .btn:hover, .login-form .btn:focus {
+            background: #2389cd;
+        }
+        .login-form a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .login-form a:hover {
+            text-decoration: none;
+        }
+        .login-form form a {
+            color: #7a7a7a;
+            text-decoration: none;
+        }
+        .login-form form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+>>>>>>> remotes/origin/feature/login/ljh
 
 <div class="container">
     <div class="starter-template">
         <p class="lead">
+<<<<<<< HEAD
             Please fill in the blank.<br>
         </p>
 
         <form name="signup" action="{% url 'register' %}" method="post">
+=======
+           <h2> 회원가입 후 서비스를 이용하세요!</h2>
+        </p>
+
+        <form name="signup" action="{% url 'index' %}" method="POST">
+>>>>>>> remotes/origin/feature/login/ljh
             {% csrf_token %}
 
             <table>
                 <tr>
+<<<<<<< HEAD
 <!--            <input type="text" name="" value="" placeholder="입력란 설명" maxlength="입력가능 글자 수" />-->
                     <td>ID</td>
                     <td><input type="text" name="user_id" id="user_id" maxlength="20" placeholder="아이디" required/>
@@ -91,6 +171,50 @@
 <!--                        <input type="tel" name="phone2" maxlength="4"/> - -->
 <!--                        <input type="tel" name="phone3" maxlength="4"/>-->
                         <input type="tel" name="mobile" placeholder="000-0000-0000"/>
+=======
+                    <td>아이디</td>
+                    <td><input type="text" name="user_id" id="user_id" maxlength="20" placeholder="USER_ID" required/>
+                        <input type="button" value="중복확인" id="checkBtn"/></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="password" name="user_pwd" id="user_pwd" maxlength="20" placeholder="Password" required/></td>
+                </tr>
+                <tr>
+                    <td>비밀번호 검사</td>
+                    <td><input type="password" name="user_pwd2" id="user_pwd2" maxlength="20" placeholder="Password Check" required/></td>
+                </tr>
+                <tr>
+                    <td>성함</td>
+                    <td><input type="text" name="user_name" placeholder="Please enter your name"/></td>
+                </tr>
+                <tr>
+                    <td>생년월일</td>
+                    <td><input type="date" name="birthday" value="sysdate"/></td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td><input type="email" name="email" placeholder="Enter your email address"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>주소</td>
+                    <td>
+                        <select id="cityDrop" name="city">
+                        <option value="선택">city</option>
+                        <option value="seoul">서울특별시</option>
+                        <option value="busan">부산광역시</option>
+                        <option value="jinju">진주시</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>전화번호</td>
+                    <td>
+                        <input type="tel" name="mobile" placeholder="Enter your mobile number"/>
+>>>>>>> remotes/origin/feature/login/ljh
                     </td>
                 </tr>
                 <tr>
@@ -102,6 +226,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
@@ -163,6 +288,16 @@
 
             $('#checkBtn').click(function(){
                 alert('사용가능')
+=======
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+            $('#checkBtn').click(function(){
+                alert('사용할 수 있습니다!')
+>>>>>>> remotes/origin/feature/login/ljh
             })
         })
 

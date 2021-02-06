@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+<<<<<<< HEAD
+=======
+
+>>>>>>> remotes/origin/feature/login/ljh
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
+<<<<<<< HEAD
     path('weathers/', include('weathers.urls')),
     path('bulletin/', include('bulletin.urls')),
+=======
+>>>>>>> remotes/origin/feature/login/ljh
 ]
