@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'users',
     'weathers',
     'bulletin',
-    'recommands',
+    'recommends',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,6 @@
+# basic
+__pycache__/
+
+# Django
+db.sqlite3
+.env
