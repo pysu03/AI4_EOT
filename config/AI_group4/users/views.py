@@ -37,6 +37,8 @@ def register(request):
 
 
 
+
+
 def loginProc(request):
     print('request - loginProc')
     if request.method == 'GET':
@@ -45,7 +47,7 @@ def loginProc(request):
         id  = request.POST['id']
         pwd = request.POST['pwd']
         # DB와 연동시키는 것
-        # select * from userregister where user_id = id and user_pwd = pwd
+        # select * from memregister where user_id = id and user_pwd = pwd
         # orm class - table
         user = memRegister.objects.get(user_id=id, user_pwd=pwd)
         print('user result - ', user)
@@ -58,3 +60,10 @@ def loginProc(request):
             return render(request, 'index.html')
         else:
             return redirect('index')
+
+
+def logout(request):
+    request.session['user_name'] = {}
+    request.session['user_id'] = {}
+    request.session.modified = True
+    return redirect('index')

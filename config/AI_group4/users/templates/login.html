@@ -1,40 +1,13 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Login Page</title>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--    <div id="msg"></div>-->
-<!--    <button id ='loginBtn'>login</button><br/>-->
-<!--    <button id ='registerBtn'>go to register</button><br/>-->
-<!--    <button id ='forgotBtn'>I forgot</button><br/>-->
-
-<!--    <button class ='ajaxBtn'>ajaxBtn</button><br/>-->
-<!--    <button class ='ajaxParamBtn'>ajaxParamBtn</button><br/>-->
-<!--    <input type="text"      name="user_id"    id="user_id"/><br/>-->
-<!--    <input type="password"  name="user_pwd"   id="user_pwd"/>-->
-<!--    <a href="{% url 'registerForm' %}" class="text-center">go to registerForm</a>-->
 
 
-<!--</body>-->
-<!--</html>-->
+{% block content %}
 
-
-
-
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Login</title>
 
@@ -44,44 +17,68 @@
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
 </head>
+
 
 <body>
 
 <div class="container">
 
-    <form action="{% url 'loginProc' %}" method="post">
+    <form class="post-form" action="{% url 'loginProc' %}" method="post">
         {% csrf_token %}
+        {% include "loginError.html" %}
+
         <h2 class="form-signin-heading">Please sign in</h2>
 
-        <table>
-            <tr>
-                <td>ID</td>
-                <td><input type="text" name="user_id" id="inputId" placeholder="ID" required autofocus/></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="user_pwd" id="inputPwd" placeholder="Password" required></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" value="remember-me"> Remember me</td>
-<!--                저장할 수 있게 만들려면 form name="" action="값 보낼 주소" method="post/get"-->
-            </tr>
 
-            <tr>
-                <td><button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button></td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label for="user_id">ID</label>
+            <input type="text" name="user_id" id="user_id" class="form-control" placeholder="ID"
+                           value="{{form.user_id.value|default_if_none:''}}" required autofocus/>
+        </div>
+        <div class="form-group">
+            <label for="user_pwd">PWD</label>
+            <input type="password" name="user_pwd" id="user_pwd" class="form-control" placeholder="Password"
+                           value="{{form.user_pwd.value|default_if_none:''}}" required/>
+        </div>
+        <div>
+            <form name="rememberId" action="{% url 'loginProc' %}" method="post">
+                <input type="checkbox" value="remember-me"> Remember me
+            </form>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
+
+<!--        <table>-->
+<!--            <tr>-->
+<!--                <td>ID</td>-->
+<!--                <td><input type="text" name="user_id" id="user_id" class="form-control" placeholder="ID" required autofocus-->
+<!--                           value="{{form.username.value|default_if_none:''}}"/></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>Password</td>-->
+<!--                <td><input type="password" name="user_pwd" id="user_pwd" class="form-control" placeholder="Password" required></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <form name="rememberId" action="{% url 'loginProc' %}" method="post">-->
+<!--                <td><input type="checkbox" value="remember-me"> Remember me</td>-->
+<!--&lt;!&ndash;                저장할 수 있게 만들려면 form name="" action="값 보낼 주소" method="post/get"&ndash;&gt;-->
+<!--                </form>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td><button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+
 <table>
     <tr>
         <td>I forgot my id/password</td>
@@ -107,3 +104,5 @@
 
 </body>
 </html>
+
+{% endblock %}
