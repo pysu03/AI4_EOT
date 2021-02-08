@@ -1,6 +1,6 @@
 from django.urls import path, include
 # from bulletin.views import boardView
-from bulletin   import views
+from bulletin import views
 
 urlpatterns = [
     path('bulletin/', views.bulletin, name='bulletin'),

@@ -1,11 +1,13 @@
 from django.contrib import auth
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 
 # Create your views here.
-from .forms import UserCreationForm
+from .forms import UserCreationForm, LoginForm
 
 
 def index(request):
@@ -36,29 +38,20 @@ def signup(request):
 
 
 # 로그인
-def login(request):
-    # login으로 POST 요청이 들어왔을 때, 로그인 절차를 밟는다.
+def signin(request):
+    form = LoginForm()
     if request.method == 'POST':
-        # login.html에서 넘어온 username과 password를 각 변수에 저장한다.
-        username = request.POST['username']
+        form = LoginForm(request.POST)
+        email = request.POST['email']
         password = request.POST['password']
-
-        # 해당 username과 password와 일치하는 user 객체를 가져온다.
-        user = auth.authenticate(request, username=username, password=password)
-
-        # 해당 user 객체가 존재한다면
+        user = authenticate(email=email, password=password)
         if user is not None:
-            # 로그인 한다
-            auth.login(request, user)
+            login(request, user)
             return redirect('/users')
-        # 존재하지 않는다면
         else:
-            # 딕셔너리에 에러메세지를 전달하고 다시 login.html 화면으로 돌아간다.
-            return render(request, 'users/login.html', {'error': 'username or password is incorrect.'})
-    # login으로 GET 요청이 들어왔을때, 로그인 화면을 띄워준다.
+            return HttpResponse('Login failed. Try again')
     else:
-        return render(request, 'users/login.html')
-
+        return render(request, 'users/signin.html', {'form': form})
 
 # 로그 아웃
 def logout(request):
@@ -68,4 +61,4 @@ def logout(request):
         return redirect('/users')
 
     # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
-    return render(request, 'users/login.html')
+    return render(request, 'users/signin.html')

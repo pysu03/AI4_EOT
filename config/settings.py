@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'weathers',
     'bulletin',
     'recommends',
+    'event',
 ]
 
 MIDDLEWARE = [
