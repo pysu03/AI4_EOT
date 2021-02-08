@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <title>Django Calendar App</title>
+</head>
+<body>
+
+    {% block content %}
+    <div class="container">
+        <div class="clearfix">
+            <a class="btn btn-primary left" href="{% url 'calendar' %}"> Calendar </a>
+            <a class="btn btn-info right mr-2" href="{% url 'event_edit' event.pk %}"> Edit Event </a>
+        </div>
+
+        <div class="clearfix">
+            <h3>Event Name: {{ event.title }}</h3>
+            <p>From <span style="color: gray;">{{ event.start_time }}</span> To <span style="color: gray;">{{ event.end_time }}</span></p>
+            <hr>
+            <p>{{ event.description }}</p>
+        </div>
+        <hr>
+    </div>
+{% endblock %}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  {% block script %}
+  {% endblock %}
+</body>
+</html>
