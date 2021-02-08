@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>TITLE</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> --> <!-- 4 버전 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"> <!-- 5 버전 -->
+
 </head>
+    <style>
+        body{
+            background-color : #87cefa;
+        }
+        .weather{
+            color : white;
+            text-align : center;
+        }
+        .CurrIcon, .CurrTemp, .Humidity{
+            display : inline-block;
+            font-size : 5rem;
+            text-align : center;
+        }
+        .CurrIcon{
+            margin-right : 2px;
+         }
+        .City{
+            font-size : 8rem;
+            text-align : center;
+        }
+    </style>
 <body>
     <h1>옷추천 서비스</h1>
 
@@ -20,17 +43,53 @@
         <div class = 'CurrIcon'></div>
         <div class = 'CurrTemp'></div>
         <div class = 'City'></div>
+        <div class = 'Humidity'></div>
     </h2></div>
 
     <h2>오늘의 추천의상은 ?</h2>
-
+        <div class = 'today-clothes'></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
     <script>
 
-
         $(document).ready(function() {
+
+            $("#region").on("change", function(){
+                console.log("change - success");
+                console.log($("#region"));
+                console.log($("#region").val());
+                loadWeather($("#region").val());
+                selectClothes(data);
+            });
+
+            function loadWeather (region) {
+                console.log(region);
+                $.ajax({
+                url : `http://api.openweathermap.org/data/2.5/weather?q=${region}&appid=89f01b74b3f891c0789c0beb732223bc&units=metric`,
+                dataType : 'json',
+                type : 'GET',
+                success : function(data){
+                    var $Icon = (data.weather[0].icon).substr(0,2);
+                    var $Temp = Math.floor(data.main.temp) + '°C';
+                    var $city = data.name;
+                    var $Humi = data.main.humidity + "%";
+                    console.log(data.main.humidity);
+                    console.log(data);
+                    console.log($Icon);
+                    console.log(weathericon);
+                     $('.CurrIcon').empty();
+                     $('.CurrTemp').empty();
+                     $('.City').empty();
+                     $('.Humidity').empty();
+                     $('.CurrIcon').append('<i class="' + weathericon[$Icon] +'"></i>');
+                     $('.CurrTemp').prepend($Temp);
+                     $('.City').append($city);
+                     $('.Humidity').prepend($Humi);
+                    }
+                });
+            }
+
             let weathericon = {
                 '01' : 'fas fa-sun',
                 '02' : 'fas fa-cloud-sun',
@@ -40,26 +99,88 @@
                 '10' : 'fas fa-cloud-showers-heavy',
                 '11' : 'fas fa-poo-storm',
                 '13' : 'fas fa-snowflake',
-                '50' : 'fas fa-fa-smog',
+                '50' : 'fas fa-smog',
             };
 
-            let region = $('#region').val();
+            function selectClothes(data) {
+                let clothes = document.querySelector('.today-clothes');
+                let currentTemp = data.main.temp;
+                console.log(data.main.temp);
+                let winter = currentTemp <= 4;
+                let earlyWinter = currentTemp >=5 && currentTemp < 9;
+                let beginWinter = currentTemp >= 9 && currentTemp < 12;
+                let fall = currentTemp >= 12 && currentTemp < 17;
+                let earlyFall = currentTemp >= 17 && currentTemp < 20;
+                let earlySummer = currentTemp >= 20 && currentTemp < 23;
+                let beginSummer = currentTemp >= 23 && currentTemp < 28;
+                let summer = currentTemp >= 28;
 
-            $.ajax({
-                url : `http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=89f01b74b3f891c0789c0beb732223bc&units=metric`,
-                dataType : 'json',
-                type : 'GET',
-                success : function(data){
-                    var $Icon = (data.weather[0].icon).substr(0,2);
-                    var $Temp = Math.floor(data.main.temp) + '°C' ;
-                    var $city = data.name;
-
-
-                     $('.CurrIcon').append('<i class="' + weathericon[$Icon] +'"></i>');
-                     $('.CurrTemp').prepend($Temp);
-                     $('.City').append($city);
+                if(winter) {
+                    clothes.textContent= `
+                    <li><h1>오늘 날씨에 입을옷은 ~ </h1></li>
+                    <li><h1>패딩 / 롱패딩</h1></li>
+                    <li><h1>두꺼운 코트</h1></li>
+                    <li><h1>목도리</h1></li>
+                    <li><h1>기모의류</h1></li>
+                    `;
+                } else if(earlyWinter) {
+                    clothes.textContent = `
+                    <li><h1>오늘 날씨에 입을옷은 ~ </h1></li>
+                    <li><h1>코트</h1></li>
+                    <li><h1>가죽자켓</h1></li>
+                    <li><h1>니트</h1></li>
+                    <li><h1>레깅스 / 히트텍</h1></li>
+                    `;
+                } else if(beginWinter) {
+                    clothes.textContent = `
+                    <li><h1>오늘 날씨에 입을옷은 ~ </h1></li>
+                    <li><h1>트렌치코트</h1></li>
+                    <li><h1>자켓 / 야상</h1></li>
+                    <li><h1>니트</h1></li>
+                    <li><h1>청바지</h1></li>
+                    `;
+                } else if(fall) {
+                    clothes.textContent = `
+                    <li><h1>오늘 날씨에 입을옷은 ~ </h1></li>
+                    <li><h1>얇은 니트</h1></li>
+                    <li><h1>맨투맨</h1></li>
+                    <li><h1>가디건</h1></li>
+                    <li><h1>청바지</h1></li>
+                    `;
+                } else if(earlyFall) {
+                    clothes.textContent = `
+                    <li><h1>오늘 날씨에 입을옷은 ~ </h1></li>
+                    <li><h1>얇은 가디건</h1></li>
+                    <li><h1>긴팔</h1></li>
+                    <li><h1>면바지</h1></li>
+                    <li><h1>청바지</h1></li>
+                    `;
+                } else if(earlySummer) {
+                    clothes.textContent = `
+                    <li><h1>오늘 날씨에 입을옷은 ~ </h1></li>
+                    <li><h1>얇은 가디건</h1></li>
+                    <li><h1>얇은 셔츠</h1></li>
+                    <li><h1>반바지</h1></li>
+                    <li><h1>면바지</h1></li>
+                    `;
+                } else if(beginSummer) {
+                    clothes.textContent = `
+                    <li><h1>오늘 날씨에 입을옷은 ~ </h1></li>
+                    <li><h1>반팔</h1></li>
+                    <li><h1>얇은 셔츠</h1></li>
+                    <li><h1>반바지</h1></li>
+                    <li><h1>면바지</h1></li>
+                    `;
+                } else if(summer) {
+                clothes.textContent = `
+                    <li><h1>오늘 날씨에 입을옷은 ~ </h1></li>
+                    <li><h1>민소매</h1></li>
+                    <li><h1>반팔 / 반바지</h1></li>
+                    <li><h1>얇은 원피스</h1></li>
+                    <li><h1>속옷만</h1></li>
+                    `;
                 }
-            })
+            }
         })
 
     </script>
