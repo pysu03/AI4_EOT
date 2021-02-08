@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <p>{{ user.username }}</p>
+    <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+    <form id="logout" method="POST" action="{% url 'logout' %}">
+        {% csrf_token %} <input type="hidden" />
+    </form>
+<<<<<<< Updated upstream
+{% else %}
+    <a href="{% url 'signup' %}">회원가입</a>
+    <a href="{% url 'login' %}">로그인</a>
+{% endif %}
+=======
+    {% else %}
+    <p><a href="{% url 'login' %}">Log-in</a></p>
+    <p><a href="{% url 'signup' %}">Sign-up</a></p>
+        {% endif %}
+    <p><a href="{% url 'weather' %}">Weather</a></p>
+    <p>Calendar</p>
+
+>>>>>>> Stashed changes
+</body>
+</html>

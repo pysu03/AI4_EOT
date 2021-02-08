@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weather</title>
+</head>
+<body>
+    <form method="POST">
+    {% csrf_token %}
+    <p>
+        <input type="date">
+        <input type="text" name="location" id="location" maxlength="50" placeholder="지역을 입력해주세요." required/>&nbsp;
+        <button id="searchbtn">검색</button>
+    </p>
+    <p>최저기온</p>
+    <p>최고기온</p>
+    <p>대기상태</p>
+    <p>강수확률</p>
+    </form>
+    <p><a href="{% url 'index' %}">main</a></p>
+
+    <script>
+        $(document).ready(function() {
+            $('#searchbtn').click(function () {
+
+            })
+
+        })
+    </script>
+</body>
+</html>
