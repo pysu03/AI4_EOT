@@ -20,3 +20,14 @@
 html 파일 저장 위치 templates/애플리케이션이름/파일명   
 사용 시 애플리케이션이름/파일명.html
 
+## 2.8 
+1. 브랜치 >> feature/weathers/pys
+2. 기존에 작업한 내용 업로드
+	>1. Todayweather 기능 구현
+	>	>geopy패키지를 이용해서 위도,경도를 구해 openweather api로 날씨데이터 수집
+	>	
+	>	2. 템플릿에 api데이터 출력
+	>
+	>4. 예보데이터 차트 만들준비
+	>
+3. 
