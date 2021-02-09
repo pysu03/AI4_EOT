@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="11809f98-b947-41f5-a526-f136abc754ff" name="Default Changelist" comment="calendar">
+      <change afterPath="$PROJECT_DIR$/.idea/AI4_EOT.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulletin/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulletin/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulletin/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/helper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/froms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales-all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales-all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-dz.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-kw.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-ly.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-ma.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-sa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-tn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/bs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/de-at.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-au.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-gb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-nz.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/eo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/es-us.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr-ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr-ch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hy-am.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ka.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/kk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ne.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pt-br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sr-cyrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ta-in.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/uz.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/zh-tw.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/main.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/main.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1o397mPEbatc3RStDjgk0foDh0W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/event" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ellen\PycharmProjects\AI4_EOT\templates\event" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ellen\PycharmProjects\AI4_EOT\config" />
+      <recent name="C:\Users\ellen\PycharmProjects\AI4_EOT\event" />
+      <recent name="C:\Users\ellen\PycharmProjects\AI4_EOT\templates\event" />
+      <recent name="C:\Users\ellen\PycharmProjects\AI4_EOT\config\AI_group4" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11809f98-b947-41f5-a526-f136abc754ff" name="Default Changelist" comment="" />
+      <created>1612504244578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612504244578</updated>
+    </task>
+    <task id="LOCAL-00001" summary="signup login logout">
+      <created>1612595423099</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1612595423099</updated>
+    </task>
+    <task id="LOCAL-00002" summary="calendar">
+      <created>1612772904744</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1612772904744</updated>
+    </task>
+    <task id="LOCAL-00003" summary="calendar">
+      <created>1612773001331</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1612773001331</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="signup login logout" />
+    <MESSAGE value="calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar" />
+  </component>
+</project>

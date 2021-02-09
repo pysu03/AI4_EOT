@@ -7,6 +7,9 @@ from django.shortcuts import render, redirect
 
 
 # Create your views here.
+from django.utils.http import is_safe_url
+
+from config import settings
 from .forms import UserCreationForm, LoginForm
 
 
@@ -47,7 +50,8 @@ def signin(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/users')
+            # return redirect('/users')
+            return redirect_after_login(request)
         else:
             return HttpResponse('Login failed. Try again')
     else:
@@ -62,3 +66,15 @@ def logout(request):
 
     # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
     return render(request, 'users/signin.html')
+
+def redirect_after_login(request):
+    nxt = request.GET.get("next", None)
+    if nxt is None:
+        return redirect(settings.LOGIN_REDIRECT_URL)
+    elif not is_safe_url(
+            url=nxt,
+            allowed_hosts={request.get_host()},
+            require_https=request.is_secure()):
+        return redirect(settings.LOGIN_REDIRECT_URL)
+    else:
+        return redirect(nxt)
