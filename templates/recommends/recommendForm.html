@@ -1,3 +1,5 @@
+{% load static  %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,48 +13,43 @@
         body{
             background-color : #87cefa;
         }
-        .weather{
-            color : white;
+        .weather, .Title{
+            color : black;
             text-align : center;
         }
-        .CurrIcon, .CurrTemp, .Humidity{
+        .CurrIcon, .CurrTemp, .Humidity, .Title{
             display : inline-block;
-            font-size : 5rem;
+            font-size : 2rem;
             text-align : center;
         }
         .CurrIcon{
             margin-right : 2px;
          }
         .City{
-            font-size : 8rem;
+            font-size : 1.5rem;
             text-align : center;
         }
     .today-clothes{
             font-size : 0.8rem;
-            color : white;
+            color : black;
             text-align : center;
         }
     </style>
-<body>
-    <h1>옷추천 서비스</h1>
+<br>
 
-    <h2>지역을 선택하세요</h2>
-        <select id=region name=region>
-            <option value="선택">city</option>
-            <option value="Seoul">서울</option>
-            <option value="Busan">부산</option>
-            <option value="Jinju">진주</option>
-        </select>
+        <div class="Title">Today's Clothes Recommend</div></br></br>
+<div class="search">지역검색<input class="location-search" name="region" id="region" type="text" >
+            <i class="fas fa-search-location" style="cursor: pointer"></i></div>
 
-    <h2><div class = 'weather'>
+        <div class = 'weather'>
         <div class = 'CurrIcon'></div>
         <div class = 'CurrTemp'></div>
         <div class = 'City'></div>
         <div class = 'Humidity'></div>
-    </h2></div>
+        </div>
 
-    <h2>오늘의 추천의상은 ?</h2>
-        <div class = 'today-clothes'></div>
+{#    <h2 class="mt-3 mb-0">오늘은 어제보다 {differenceTemp}&#176; 추워요 ! </h2>#}
+        <div class = 'today-clothes'><h2>오늘의 추천의상은 ?</h2></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
@@ -94,7 +91,6 @@
                     }
                 });
             }
-
             let weathericon = {
                 '01' : 'fas fa-sun',
                 '02' : 'fas fa-cloud-sun',
@@ -123,37 +119,58 @@
                 if(winter) {
                     clothes.innerHTML=`
                     <li><h1>패딩, 두꺼운 코트, 누빔 옷, 기모, 목도리</h1></li>
-                    <img src="https://image.msscdn.net/images/goods_img/20200715/1515902/1515902_2_500.jpg" alt="패딩" width="200" height="200" >
-                    <img src="https://image.msscdn.net/images/goods_img/20200917/1609490/1609490_1_500.jpg" alt="두꺼운 코트" width="200" height="200" >
-                    <img src="https://image.msscdn.net/images/goods_img/20201026/1663477/1663477_1_500.jpg" alt="목도리" width="200" height="200" >
+                    <img src="{%  static  '/resources/clothes/winter1.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/winter2.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/winter3.png' %}" style="width:80px; height:80px;">
                     `;
                 } else if(earlyWinter) {
-                    clothes.textContent = `
+                    clothes.innerHTML = `
                     <li><h1>울코트, 히트텍, 가죽 옷, 기모</h1></li>
+                    <img src="{%  static  '/resources/clothes/earlywinter1.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/earlywinter2.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/earlywinter3.png' %}" style="width:80px; height:80px;">
                     `;
                 } else if(beginWinter) {
-                    clothes.textContent = `
+                    clothes.innerHTML = `
                     <li><h1>트렌치 코트, 야상, 점프, 스타킹, 기모바지</h1></li>
+                    <img src="{%  static  '/resources/clothes/beginwinter1.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/beginwinter2.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/beginwinter3.png' %}" style="width:80px; height:80px;">
                     `;
                 } else if(fall) {
-                    clothes.textContent = `
+                    clothes.innerHTML = `
                     <li><h1>자켓, 가디건, 청자켓, 니트, 스타킹, 청바지</h1></li>
+                    <img src="{%  static  '/resources/clothes/fall1.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/fall2.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/fall3.png' %}" style="width:80px; height:80px;">
                     `;
                 } else if(earlyFall) {
-                    clothes.textContent = `
+                    clothes.innerHTML = `
                     <li><h1>얇은 가디건, 니트, 맨투맨, 후드, 긴바지</h1></li>
+                    <img src="{%  static  '/resources/clothes/earlyfall1.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/earlyfall2.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/earlyfall3.png' %}" style="width:80px; height:80px;">
                     `;
                 } else if(earlySummer) {
-                    clothes.textContent = `
+                    clothes.innerHTML = `
                     <li><h1>블라우스, 긴팔 티, 면바지, 슬랙스</h1></li>
+                    <img src="{%  static  '/resources/clothes/earlysummer1.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/earlysummer2.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/earlysummer3.png' %}" style="width:80px; height:80px;">
                     `;
                 } else if(beginSummer) {
-                    clothes.textContent = `
+                    clothes.innerHTML = `
                     <li><h1>반팔, 얇은 셔츠, 반바지, 면바지</h1></li>
+                    <img src="{%  static  '/resources/clothes/beginsummer1.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/beginsummer2.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/beginsummer3.png' %}" style="width:80px; height:80px;">
                     `;
                 } else if(summer) {
-                clothes.textContent = `
+                clothes.innerHTML = `
                     <li><h1>민소매, 반팔, 반바지, 짧은 치마, 린넨 옷</h1></li>
+                    <img src="{%  static  '/resources/clothes/summer1.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/summer2.png' %}" style="width:80px; height:80px;">
+                    <img src="{%  static  '/resources/clothes/summer3.png' %}" style="width:80px; height:80px;">
                     `;
                 }
             }
