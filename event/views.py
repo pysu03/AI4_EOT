@@ -1,6 +1,3 @@
-import calendar
-from datetime import date, datetime, timedelta
-
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, HttpResponseRedirect
@@ -12,29 +9,7 @@ from django.views import generic
 from .forms import EventForm
 from .models import Event
 from .utils import Calendar
-
-# @login_required(login_url='signin')
-# def index(request):
-#     return HttpResponse('hello')
-
-def get_date(req_day):
-    if req_day:
-        year, month = (int(x) for x in req_day.split('-'))
-        return date(year, month, day=1)
-    return datetime.today()
-
-def prev_month(d):
-    first = d.replace(day=1)
-    prev_month = first - timedelta(days=1)
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
-    return month
-
-def next_month(d):
-    days_in_month = calendar.monthrange(d.year, d.month)[1]
-    last = d.replace(day=days_in_month)
-    next_month = last + timedelta(days=1)
-    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
-    return month
+from core.utils import get_date, prev_month, next_month
 
 class CalendarView(LoginRequiredMixin, generic.ListView):
     login_url = 'signin'
@@ -97,29 +72,3 @@ def saveNback(request):
     event.completed = saveCB
     event.save()
     return HttpResponseRedirect(reverse('calendar'))
-
-# def add_eventmember(request, event_id):
-#     forms = AddMemberForm()
-#     if request.method == 'POST':
-#         forms = AddMemberForm(request.POST)
-#         if forms.is_valid():
-#             member = EventMember.objects.filter(event=event_id)
-#             event = Event.objects.get(id=event_id)
-#             if member.count() <= 9:
-#                 user = forms.cleaned_data['user']
-#                 EventMember.objects.create(
-#                     event=event,
-#                     user=user
-#                 )
-#                 return redirect('calendarapp:calendar')
-#             else:
-#                 print('--------------User limit exceed!-----------------')
-#     context = {
-#         'form': forms
-#     }
-#     return render(request, 'add_member.html', context)
-#
-# class EventMemberDeleteView(generic.DeleteView):
-#     model = EventMember
-#     template_name = 'event_delete.html'
-#     success_url = reverse_lazy('calendarapp:calendar')

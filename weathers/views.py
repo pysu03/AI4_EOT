@@ -2,43 +2,33 @@ from django.shortcuts import render, redirect
 import requests
 from datetime import datetime
 import time
-from geopy.geocoders import Nominatim  # pip install geopy
-from pprint import pprint
+from geopy.geocoders import Nominatim  
 from .models import Todayweather
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
-
 def search(requset):
     return render(requset, 'search.html')
 
 def weather(request):
     if request.method == 'POST':
-        # Todayweather
-        # 위도, 경도 구하기
+        
+        # 위도, 경도
         location = request.POST['location']
-        print('weather location - ', location)
         app = Nominatim(user_agent='tutorial')
         loc = app.geocode(location)
         location_code = loc.raw
-        pprint(loc)
         lat_code = location_code['lat']
         lon_code = location_code['lon']
 
-        # openweathermap api로 날씨 데이터 받기
+        # openweathermap API
         # user_api = '7757c17e77da5628ba7ddfd9637604f3'
 
         complete_api_link = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid=7757c17e77da5628ba7ddfd9637604f3&units=metric'.format(lat_code, lon_code)
-        # print(complete_api_link)
         api_link = requests.get(complete_api_link)
         api_data = api_link.json()
-        # print(api_data)
-
 
         # 미세먼지 API
-        air_pollution_api_link = 'http://api.openweathermap.org/data/2.5/air_pollution?lat={}&lon={}&appid=7757c17e77da5628ba7ddfd9637604f3&units=metric'.format(
-            lat_code, lon_code)
+        air_pollution_api_link = 'http://api.openweathermap.org/data/2.5/air_pollution?lat={}&lon={}&appid=7757c17e77da5628ba7ddfd9637604f3&units=metric'.format(lat_code, lon_code)
         airP_api_link = requests.get(air_pollution_api_link)
         airP_data = airP_api_link.json()
         # print(airP_data)

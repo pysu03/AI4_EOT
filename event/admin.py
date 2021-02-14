@@ -16,15 +16,3 @@ class EventAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Event, EventAdmin)
-
-
-#     add_fieldsets = (
-#         (None, {
-#             'classes': ('wide',),
-#             'fields': ('email', 'name', 'date_of_birth', 'gender', 'phone',
-#                        'address1', 'address2', 'address3',
-#                        'password1', 'password2')}
-#          ),
-#     )
-#
-# admin.site.unregister(Group)

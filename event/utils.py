@@ -1,8 +1,6 @@
 # calendarapp/utils.py
-
 from calendar import HTMLCalendar
 from .models import Event
-
 
 class Calendar(HTMLCalendar):
     def __init__(self, year=None, month=None):
@@ -10,8 +8,6 @@ class Calendar(HTMLCalendar):
         self.month = month
         super(Calendar, self).__init__()
 
-    # formats a day as a td
-    # filter events by day
     def formatday(self, day, events):
         events_per_day = events.filter(time__day=day)
         d = ''
@@ -35,7 +31,7 @@ class Calendar(HTMLCalendar):
     def formatmonth(self, withyear=True):
         events = Event.objects.filter(time__year=self.year, time__month=self.month)
 
-        cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
+        cal = f'<table class="table table-bordered">\n'
         cal += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
         cal += f'{self.formatweekheader()}\n'
         for week in self.monthdays2calendar(self.year, self.month):
