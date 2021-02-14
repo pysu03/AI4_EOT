@@ -9,8 +9,10 @@ class Event(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, unique=True)
     description = models.TextField()
-    start_time = models.DateTimeField()
+    time = models.DateTimeField()
     # end_time = models.DateTimeField()
+    address = models.CharField(max_length=100)
+    completed = models.CharField(max_length=30, default="uncompleted")
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
