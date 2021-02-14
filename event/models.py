@@ -23,4 +23,7 @@ class Event(models.Model):
     @property
     def get_html_url(self):
         url = reverse('event-detail', args=(self.id,))
-        return f'<a href="{url}"> {self.title} </a>'
+        if self.completed == 'completed' :
+            return f'<a href="{url}" style="text-decoration:line-through"> {self.title} </a>'
+        else:
+            return f'<a href="{url}"> {self.title} </a>'

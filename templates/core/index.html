@@ -122,8 +122,8 @@ Home
 <div class="container">
   <div class="card">
       <div class="card-header">
-        <a class="btn btn-info right mr-2" href="{% url 'calendar' %}?{{ next_month }} "> 이전 달 </a>
-        <a class="btn btn-info right mr-2" href="{% url 'calendar' %}?{{ prev_month }}"> 다음 달 </a>
+        <a class="btn btn-info right mr-2" href="{% url 'home' %}?{{ prev_month }}"> 이전 달 </a>
+        <a class="btn btn-info right mr-2" href="{% url 'home' %}?{{ next_month }} "> 다음 달 </a>
         <a class="btn btn-info right mr-2" href="{% url 'event_new' %}"> 할일 추가 </a>  
       </div>
       <div class="card-body">

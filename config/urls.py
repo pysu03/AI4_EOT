@@ -20,7 +20,5 @@ urlpatterns = [
     path('',include('core.urls')), 
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
-    path('weathers/', include('weathers.urls')),
-    path('bulletin/', include('bulletin.urls')),
     path('event/', include('event.urls')),
 ]

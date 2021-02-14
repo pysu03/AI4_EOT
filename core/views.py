@@ -11,7 +11,7 @@ def index(request):
     context = weather(location)
     context['recommend'] = recommend(context['weatherInfo']['temp'])
 
-    d = get_date()
+    d = get_date(request.GET.get('month', None))
     cal = Calendar(d.year, d.month)
     html_cal = cal.formatmonth(withyear=True)
     context['calendar'] = mark_safe(html_cal)
