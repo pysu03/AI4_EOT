@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form method="POST" action="{% url 'weather' %}" >
+    {% csrf_token %}
+    <p>
+        <input type="text" name="location" id="location" maxlength="50" placeholder="지역을 입력해주세요." required/>&nbsp;
+        <input type="submit" value="검색">
+    </p>
+
+    </form>
+    <p><a href="{% url 'w_index' %}">main</a></p>
+</body>
+</html>
