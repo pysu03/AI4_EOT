@@ -13,10 +13,6 @@ from config import settings
 from .forms import UserCreationForm, LoginForm
 
 
-def index(request):
-    return render(request, 'users/index.html')
-
-
 # 회원 가입
 # @login_required()
 def signup(request):

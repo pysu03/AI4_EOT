@@ -25,8 +25,6 @@ def weather(request):
         pprint(loc)
         lat_code = location_code['lat']
         lon_code = location_code['lon']
-        # print(lat_code)
-        # print(lon_code)
 
         # openweathermap api로 날씨 데이터 받기
         # user_api = '7757c17e77da5628ba7ddfd9637604f3'

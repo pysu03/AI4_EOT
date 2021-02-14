@@ -1,0 +1,135 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_name %} 
+Home 
+{% endblock page_name %}
+
+
+{% block content %} 
+    <h1>Hello</h1>
+
+    {% if user.is_authenticated %}
+        <p>{{ user.username }}</p>
+        <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+        <form id="logout" method="POST" action="{% url 'logout' %}">
+            {% csrf_token %} <input type="hidden" />
+        </form>
+    {% else %}
+        <a href="{% url 'signup' %}">회원가입</a>
+        <a href="{% url 'signin' %}">로그인</a>
+    {% endif %}
+
+
+    <figure class="highcharts-figure">
+      <div id="container"></div>
+      <p class="highcharts-description">
+        # 차트 #
+      </p>
+    </figure>
+    <p>{{weatherInfo.location}} &nbsp;&nbsp;오늘의 날씨</p>
+    <p>{{weatherInfo.date_time}}</p>
+    <p>현재 기온&nbsp;:&nbsp;{{weatherInfo.weatherInfo.temp}}°C</p>
+    <p>체감 온도&nbsp;:&nbsp;{{weatherInfo.weatherInfo.feels_like}}°C</p>
+    <p>최저 기온&nbsp;:&nbsp;{{weatherInfo.temp_min}}°C</p>
+    <p>최고 기온&nbsp;:&nbsp;{{weatherInfo.temp_max}}°C</p>
+    <p>현재 날씨&nbsp;:&nbsp;{{weatherInfo.weather_desc}}</p>
+    <p>현재 습도&nbsp;:&nbsp;{{weatherInfo.hmdt}}%</p>
+    <p>현재 풍속&nbsp;:&nbsp;{{weatherInfo.wind_spd}}km/h</p>
+    <p>일출 시간&nbsp;:&nbsp;{{weatherInfo.sunrise}}</p>
+    <p>일몰 시간&nbsp;:&nbsp;{{weatherInfo.sunset}}</p>
+    <p>미세 먼지&nbsp;:&nbsp;{{weatherInfo.pm10}}㎍/m³</p>
+    <p>초미세먼지&nbsp;:&nbsp;{{weatherInfo.pm2_5}}㎍/m³</p>
+
+    <script>
+        Highcharts.chart('container', {
+          chart: {
+            zoomType: 'xy'
+          },
+          title: {
+            text: '다음 24시간 기온 및 강수확률'
+          },
+          subtitle: {
+            text: 'Source: openweathermap.org'
+          },
+          xAxis: [{
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            crosshair: true
+          }],
+          yAxis: [{ // Primary yAxis
+            labels: {
+              format: '{value}°C',
+              style: {
+                color: Highcharts.getOptions().colors[1]
+              }
+            },
+            title: {
+              text: '기온',
+              style: {
+                color: Highcharts.getOptions().colors[1]
+              }
+            }
+          }, { // Secondary yAxis
+            title: {
+              text: '강수확률',
+              style: {
+                color: Highcharts.getOptions().colors[0]
+              }
+            },
+            labels: {
+              format: '{value} %',
+              style: {
+                color: Highcharts.getOptions().colors[0]
+              }
+            },
+            opposite: true
+          }],
+          tooltip: {
+            shared: true
+          },
+          legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 100,
+            floating: true,
+            backgroundColor:
+              Highcharts.defaultOptions.legend.backgroundColor || // theme
+              'rgba(255,255,255,0.25)'
+          },
+          series: [{
+            name: '강수확률',
+            type: 'column',
+            yAxis: 1,
+            data:  {{list_fore24_pop}},
+            tooltip: {
+              valueSuffix: '%'
+            }
+
+          }, {
+            name: '기온',
+            type: 'spline',
+            data:  {{ list_fore24_temp }},
+            tooltip: {
+              valueSuffix: '°C'
+            }
+          }]
+        });
+
+    </script>
+
+<div class="Title">Today's Clothes Recommend</div></br></br>
+<div class="search">지역검색<input class="location-search" name="region" id="region" type="text" >
+            <i class="fas fa-search-location" style="cursor: pointer"></i></div>
+
+        <div class = 'weather'>
+        <div class = 'CurrIcon'></div>
+        <div class = 'CurrTemp'></div>
+        <div class = 'City'></div>
+        <div class = 'Humidity'></div>
+        </div>
+<div class = 'today-clothes'><h2>오늘의 추천의상은 ?</h2></div>
+{% endblock content %}
