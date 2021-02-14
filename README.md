@@ -34,3 +34,6 @@ html 파일 저장 위치 templates/애플리케이션이름/파일명
 ## 2.9
 1. 예보 차트 구현(3시간 단위로 24시간까지)
 2. 기타 코드 수정
+
+
+pip install django-bootstrap4

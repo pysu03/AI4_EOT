@@ -1,19 +1,21 @@
-<!--<form method="POST" action="{% url 'signup' %}">-->
-<!--    {% csrf_token %}-->
-<!--    <p>email</p>-->
-<!--    <input type="text" name="email">-->
-<!--    <br>-->
-<!--    <p>password</p>-->
-<!--    <input type="text" name="password">-->
-<!--    <br>-->
-<!--    <p>confirm</p>-->
-<!--    <input type="text" name="confirm">-->
-<!--    <br>-->
-<!--    <input type="submit" value="회원가입">-->
-<!--</form>-->
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
+{% block page_name %} 
+Signup
+{% endblock page_name %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form method="POST">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

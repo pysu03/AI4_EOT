@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+  <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+  <div class="collapse navbar-collapse">
+  <ul class="navbar-nav mr-auto">
+    <a class="nav-link active" href="#">Weather</a>
+    <a class="nav-link" href="#">Todo</a>
+  </ul>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" name="location" placeholder="서울" aria-label="Search">
+    <button class="btn my-bg my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <ul class="nav navbar-nav navbar-right">
+    {% if user.is_authenticated %}
+      <li>{{ user.username }}</li>
+      <li><a class="nav-link" href="{% url 'logout' %}">로그아웃</a></li>
+    {% else %}
+      <li><a class="nav-link" href="{% url 'signup' %}">회원가입</a></li>
+      <li><a class="nav-link" href="{% url 'signin' %}">로그인</a></li>
+    {% endif %}
+    <ul>
+</div>
+</nav>

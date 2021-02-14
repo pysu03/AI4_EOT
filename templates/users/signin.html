@@ -1,5 +1,22 @@
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
+
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block page_name %} 
+Login
+{% endblock page_name %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -4,9 +4,11 @@ from django.utils.safestring import mark_safe
 from .utils import get_date, prev_month, next_month
 from recommends.utils import recommend
 from event.utils import Calendar
-# Create your views here.
+
+
 def index(request):
-    context = weather('서울')
+    location = request.GET.get('location', 'seoul')
+    context = weather(location)
     context['recommend'] = recommend(context['weatherInfo']['temp'])
 
     d = get_date()

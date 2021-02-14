@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'recommends',
     'event',
     'core',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -107,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'users.User'
 
-LOGIN_REDIRECT_URL = '/users'
+LOGIN_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
