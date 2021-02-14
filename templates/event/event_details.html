@@ -11,25 +11,50 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <title>Django Calendar App</title>
+
+<style>
+    label{
+        display:inline-block; width:300px; line-height:70px;
+        font-size: 28px;
+<!--        font-weight: bolder;-->
+    }
+    .strike{
+        text-decoration:line-through;
+    }
+
+</style>
+
 </head>
 <body>
 
     {% block content %}
     <div class="container">
         <div class="clearfix">
-            <a class="btn btn-primary left" href="{% url 'calendar' %}"> Calendar </a>
-            <a class="btn btn-info right mr-2" href="{% url 'event_edit' event.pk %}"> Edit Event </a>
+            <form name="completedForm" action="{% url 'saveNback' %}" method="post">
+<!--                <a class="btn btn-primary left" href="{% url 'calendar' %}"> Calendar </a>-->
+                {% csrf_token %}
+                <input type="hidden" name="id" id="id" value="{{event.id}}">
+                <input type="text" readonly id="saveCB" name="saveCB" value="{{board.completed}}" />
+                <input type="submit" value="Calendar" class="btn btn-primary left">
+            </form>
         </div>
 
         <div class="clearfix">
-            <h3>Event Name: {{ event.title }}</h3>
-            <p>From <span style="color: gray;">{{ event.start_time }}</span> To <span style="color: gray;">{{ event.end_time }}</span></p>
+            <input type="checkbox" name="completed" id="completed"/>
+            <label for="completed">{{ event.title }}</label>
+<!--            <h3>{{event.title}}</h3>-->
+            <p> <span style="color: gray;">{{ event.time }}</span>
+                <span style="color: gray;"> &nbsp;&nbsp;|&nbsp;&nbsp; {{ event.address }}</span></p>
             <hr>
             <p>{{ event.description }}</p>
         </div>
         <hr>
+        <div class="clearfix">
+            <a class="btn btn-info right mr-2" href="{% url 'event_edit' event.pk %}"> Edit Event </a>
+            <a class="btn btn-info right mr-2" href="{% url 'event_edit' event.pk %}"> Delete Event </a>
+        </div>
     </div>
-{% endblock %}
+    {% endblock %}
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -39,6 +64,23 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+
+<script>
+    $( document ).ready(function() {
+        $("#completed").click(function(){
+            if($("#completed").is(":checked")){
+                $('label').toggleClass('strike');
+                $("#saveCB").val('completed');
+            }
+            else{
+                $('label').toggleClass('strike');
+                $("#saveCB").val('uncompleted');
+            };
+        });
+    });
+
+
+</script>
 
   {% block script %}
   {% endblock %}

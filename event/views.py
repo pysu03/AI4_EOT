@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.views import generic
 
-from .froms import EventForm
+from .forms import EventForm
 from .models import Event
 from .utils import Calendar
 
@@ -58,13 +58,17 @@ def create_event(request):
     if request.POST and form.is_valid():
         title = form.cleaned_data['title']
         description = form.cleaned_data['description']
-        start_time = form.cleaned_data['start_time']
+        time = form.cleaned_data['time']
+        address = form.cleaned_data['address']
+        completed = form.cleaned_data['completed']
         # end_time = form.cleaned_data['end_time']
         Event.objects.get_or_create(
             user=request.user,
             title=title,
             description=description,
-            start_time=start_time,
+            time=time,
+            address=address,
+            completed=completed,
             # end_time=end_time
         )
         return HttpResponseRedirect(reverse('calendar'))
@@ -72,7 +76,7 @@ def create_event(request):
 
 class EventEdit(generic.UpdateView):
     model = Event
-    fields = ['title', 'description', 'start_time', 'end_time']
+    fields = ['title', 'description', 'time', 'address']
     template_name = 'event/event.html'
 
 @login_required(login_url='signin')
@@ -83,6 +87,16 @@ def event_details(request, event_id):
     }
     return render(request, 'event/event_details.html', context)
 
+
+def saveNback(request):
+    print('request saveNback - ')
+    id = request.POST['id']
+    saveCB = request.POST['saveCB']
+    print('param - ' , id, saveCB)
+    event = Event.objects.get(id=id)
+    event.completed = saveCB
+    event.save()
+    return HttpResponseRedirect(reverse('calendar'))
 
 # def add_eventmember(request, event_id):
 #     forms = AddMemberForm()
@@ -104,7 +118,7 @@ def event_details(request, event_id):
 #         'form': forms
 #     }
 #     return render(request, 'add_member.html', context)
-
+#
 # class EventMemberDeleteView(generic.DeleteView):
 #     model = EventMember
 #     template_name = 'event_delete.html'

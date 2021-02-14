@@ -2,11 +2,11 @@ from django.contrib import admin
 from .models import Event
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('user', 'title', 'description', 'start_time', 'created_date')
+    list_display = ('user', 'title', 'time', 'address', 'description', 'completed')
     list_filter = ('user',)
     fieldsets = (
         (None, {'fields': ('user',)}),
-        ('Event', {'fields': ('title', 'description', 'start_time')}),
+        ('Event', {'fields': ('title', 'description')}),
         ('Important dates', {'fields': ('created_date',)}),
     )
 
