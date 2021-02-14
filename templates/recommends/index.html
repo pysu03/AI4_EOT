@@ -125,17 +125,15 @@
                     </div>
                 </div>
                 <div class="card2 col-lg-4 col-md-5">
-                    <div class="row px-3"> <input type="text" name="location" placeholder="Another location" class="mb-5">
-                        <div class="fa fa-search mb-5 mr-0 text-center"></div>
-                    </div>
+                    <div class="line my-5"></div>
+                        <p>Another function</p>
                     <div class="mr-5">
                         <p class="light-text suggestion">상세 날씨</p>
                         <p class="light-text suggestion">Calender : 달력</p>
-                        <p class="light-text suggestion">Function : 기능</p>
-
-                        <a href="http://localhost:8000/users/recommendForm/" class="light-text suggestion">오늘 입을 옷을 골라봐요!</a>
-
-                        <p class="light-text suggestion">기타 + Alpha</p>
+                        <a href="http://localhost:8000/recommends/recommendForm/" class="light-text suggestion"
+                           onclick="window.open(this.href,'','width=510, height=620, scrollbars=yes');
+                           return false;" href="loan01/pop_address.html">오늘 뭐 입지?</a>
+                        <p class="light-text suggestion">기타</p>
 
                         <div class="line my-5"></div>
                         <p>Weather Details</p>
@@ -176,6 +174,8 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+
+
     <script>
 /*
         $(document).ready(function() {
