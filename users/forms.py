@@ -42,6 +42,7 @@ class UserChangeForm(forms.ModelForm):
     def clean_password(self):
         return self.initial["password"]
 
+
 class LoginForm(forms.ModelForm):
     email = forms.CharField(label='이메일')
     password = forms.CharField(label='비밀번호', widget=forms.PasswordInput)
