@@ -45,7 +45,14 @@ Home
         <div class="today-clothes">
           <h3>{{ recommend.text }}</h3>
           {% with 'resources/clothes/'|add:recommend.filename as image_src %}
-            <img src="{% static image_src %}" style="width:80px; height:80px;">
+            <img src="{% static image_src %}" style="width:240px; height:80px;">
+
+{#             ljh 해당부분 작업 했습니다!            #}
+
+        <div class = 'today-music'><h2>Today's recommended music</h2></div>
+
+{#             ljh 해당부분 작업 했습니다!            #}
+
           {% endwith %}
         </div>
       </div>
@@ -116,6 +123,53 @@ Home
     }]
   });
 </script>
+
+    {#             ljh 해당부분 작업 했습니다!            #}
+<script>
+            function selectMusics(data) {
+                $.ajax({
+                  type: "POST",
+                  url: "recommends/musicRecommend.py",
+                  data: { param: text }
+                }).done(function() {
+                    let currentTemp = data.main.temp;
+                    let musics = document.querySelector('.today-music');
+                    let currentIcon = data.weather[0].description;
+                    var clean = "clean";
+                    var rain = "rain";
+                    var snow = "snow";
+                    var cloud = "cloud";
+                    console.log(data.weather[0].description);
+
+                    if(currentTemp >= 28) {
+                        alert("더움!");
+                        musics = {{ loadHot }};
+                    }
+                    else if(currentIcon.indexOf(clean) != -1) {
+                        alert("맑음!");
+                        musics = {{ loadClean }};
+                    }
+                    else if (currentIcon.indexOf(rain) != -1) {
+                        alert("비!");
+                        musics = {{ loadRain }}
+                    }
+                    else if (currentIcon.indexOf(snow) != -1) {
+                        alert("눈!");
+                        musics = {{ loadSnow }}
+                    }
+                    else if (cloud.indexOf(currentIcon) != -1) {
+                        alert("흐림!");
+                        musics = {{ loadCloud }}
+                    }
+                    else {
+                        alert("아무것도 포함되지 않음!");
+                        musics = {{ loadNormal }}
+                    }
+                });
+            }
+</script>
+    {#             ljh 해당부분 작업 했습니다!            #}
+
 {% endblock content %}
 
 {% block sub %} 
