@@ -1,0 +1,134 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_name %} 
+Home 
+{% endblock page_name %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">
+          <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description"></p>
+          </figure>
+        </div>
+        <div class="card-body">
+          <dl class="row">
+            <dt class="col-sm-3">{{weatherInfo.location}} </dt>
+            <dd class="col-sm-9">날씨</dd>
+            <dt class="col-sm-3">{{weatherInfo.date_time}} </dt>
+            <dd class="col-sm-9">시간</dd>
+            <dt class="col-sm-3">현재 기온</dt>
+            <dd class="col-sm-9">{{weatherInfo.temp}}°C</dd>
+            <dt class="col-sm-3">체감 온도</dt>
+            <dd class="col-sm-9">{{weatherInfo.feels_like}}°C</dd>
+            <dt class="col-sm-3">현재 날씨</dt>
+            <dd class="col-sm-9">{{weatherInfo.weather_desc}}</dd>
+            <dt class="col-sm-3">미세 먼지</dt>
+            <dd class="col-sm-9">{{weatherInfo.pm10}}㎍/m³</dd>
+            <dt class="col-sm-3">초미세먼지</dt>
+            <dd class="col-sm-9">{{weatherInfo.pm2_5}}㎍/m³</dd>
+          </dl>
+        </div>        
+      </div>
+    </div>        
+    <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">오늘의 추천의상은 ?</h3>
+        <div class="today-clothes">
+          <h3>{{ recommend.text }}</h3>
+          {% with 'resources/clothes/'|add:recommend.filename as image_src %}
+            <img src="{% static image_src %}" style="width:80px; height:80px;">
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>    
+<script>
+  const list_fore24_pop = {{ list_fore24_pop }}
+  const list_fore24_temp = {{ list_fore24_temp }}
+  Highcharts.chart('container', {
+    chart: { zoomType: 'xy'},
+    title: { text: '다음 24시간 기온 및 강수확률' },
+    subtitle: { text: 'Source: openweathermap.org' },
+    xAxis: [{
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      crosshair: true
+    }],
+    yAxis: [{ // Primary yAxis
+      labels: {
+        format: '{value}°C',
+        style: { color: Highcharts.getOptions().colors[1]}
+      },
+      title: {
+        text: '기온',
+        style: { color: Highcharts.getOptions().colors[1]}
+      }
+    }, { // Secondary yAxis
+      title: {
+        text: '강수확률',
+        style: {color: Highcharts.getOptions().colors[0]}
+      },
+      labels: {
+        format: '{value} %',
+        style: {color: Highcharts.getOptions().colors[0]}
+      },
+      opposite: true
+    }],
+    tooltip: {shared: true},
+    legend: {
+      layout: 'vertical',
+      align: 'left',
+      x: 120,
+      verticalAlign: 'top',
+      y: 100,
+      floating: true,
+      backgroundColor:
+        Highcharts.defaultOptions.legend.backgroundColor || // theme
+        'rgba(255,255,255,0.25)'
+    },
+    series: [
+    {
+      name: '강수확률',
+      type: 'column',
+      yAxis: 1,
+      data:  list_fore24_pop,
+      tooltip: {
+        valueSuffix: '%'
+      }
+    }, 
+    {
+      name: '기온',
+      type: 'spline',
+      data:  list_fore24_temp,
+      tooltip: {
+        valueSuffix: '°C'
+      }
+    }]
+  });
+</script>
+{% endblock content %}
+
+{% block sub %} 
+<div class="container">
+  <div class="card">
+      <div class="card-header">
+        <a class="btn btn-outline-info right mr-2" href="{% url 'home' %}?{{ prev_month }}"> 이전 달 </a>
+        <a class="btn btn-outline-info right mr-2" href="{% url 'home' %}?{{ next_month }} "> 다음 달 </a>
+        <a class="btn btn-outline-primary" href="{% url 'event_new' %}"> 할일 추가 </a>
+      </div>
+      <div class="card-body">
+      {{ calendar }}
+      </div>    
+  </div>
+</div>
+{% endblock sub %}

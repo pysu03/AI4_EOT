@@ -1,0 +1,78 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block page_name %} 
+Event Edit
+{% endblock page_name %}
+
+
+{% block content %}
+<style>
+    .strike{
+        text-decoration:line-through;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+            <div class="card">
+                <div class="card-header">
+                    <form method="POST" action="{% url 'saveNback' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" id="id" value="{{event.id}}">
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control" readonly id="saveCB" name="saveCB" value="{{event.completed}}" />
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">저장</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="completed" id="completed">
+                            <label class="form-check-label" for="completed">
+                                {{ event.title }}
+                            </label>
+                        </div>
+                    </div>
+                    <p class="card-text"> 시간 : {{ event.time }}</p>
+                    <p class="card-text"> 장소 : {{ event.address }}</p>
+                    <p class="card-text"> 상세 내용 : {{ event.description }}</p>
+                    <a class="btn btn-info right mr-2 " href="{% url 'event_edit' event.pk %}"> Edit Event </a>
+                    <a class="btn btn-dark" href="{% url 'event_delete' event.pk %}"> Delete Event </a>
+                </div>
+            </div>
+    </div>
+</div>
+
+<script>
+    $( document ).ready(function() {
+        $("#completed").click(function(){
+            if($("#completed").is(":checked")){
+                $('label').toggleClass('strike');
+                $("#saveCB").val('completed');
+            }
+            else{
+                $('label').toggleClass('strike');
+                $("#saveCB").val('uncompleted');
+            };
+        });
+    });
+    $(function(){
+        if($("#saveCB").val()=="completed"){
+            $("#completed").prop("checked", true);
+            $('label').toggleClass('strike');
+        }
+        else{
+            $("#completed").prop("checked", False);
+            $('label').toggleClass('strike');
+        }
+    });
+</script>
+{% endblock %}
