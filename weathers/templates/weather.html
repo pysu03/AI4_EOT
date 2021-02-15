@@ -7,6 +7,7 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
         .highcharts-figure, .highcharts-data-table table {
@@ -57,8 +58,8 @@
     </figure>
 <p>{{weatherInfo.location}} &nbsp;&nbsp;오늘의 날씨</p>
 <p>{{weatherInfo.date_time}}</p>
-<p>현재 기온&nbsp;:&nbsp;{{weatherInfo.weatherInfo.temp}}°C</p>
-<p>체감 온도&nbsp;:&nbsp;{{weatherInfo.weatherInfo.feels_like}}°C</p>
+<p>현재 기온&nbsp;:&nbsp;{{weatherInfo.temp}}°C</p>
+<p>체감 온도&nbsp;:&nbsp;{{weatherInfo.feels_like}}°C</p>
 <p>최저 기온&nbsp;:&nbsp;{{weatherInfo.temp_min}}°C</p>
 <p>최고 기온&nbsp;:&nbsp;{{weatherInfo.temp_max}}°C</p>
 <p>현재 날씨&nbsp;:&nbsp;{{weatherInfo.weather_desc}}</p>
@@ -71,6 +72,10 @@
 
 
     <script>
+        var fore24 = "{{list_fore24_time}}".replace(/&#39;/g, "\"");
+        console.log(fore24)
+        var forejson = JSON.parse(fore24);
+        console.log(forejson)
         Highcharts.chart('container', {
           chart: {
             zoomType: 'xy'
@@ -82,9 +87,7 @@
             text: 'Source: openweathermap.org'
           },
           xAxis: [{
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-{#              {{ list_fore24_time }},#}
+            categories: forejson,
             crosshair: true
           }],
           yAxis: [{ // Primary yAxis

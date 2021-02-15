@@ -31,7 +31,7 @@ def weather(request):
         # openweathermap api로 날씨 데이터 받기
         # user_api = '7757c17e77da5628ba7ddfd9637604f3'
         # 날씨데이터 API
-        complete_api_link = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid=7757c17e77da5628ba7ddfd9637604f3&units=metric'.format(lat_code, lon_code)
+        complete_api_link = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid=7757c17e77da5628ba7ddfd9637604f3&units=metric&lang=kr'.format(lat_code, lon_code)
         # print(complete_api_link)
         api_link = requests.get(complete_api_link)
         api_data = api_link.json()
@@ -379,8 +379,8 @@ def weather(request):
         print(list_fore24_temp)
         print(list_fore24_pop)
 
-        context2 = {'list_fore24_time': list_fore24_time, 'list_fore24_pop': list_fore24_pop,
-                   'list_fore24_temp': list_fore24_temp ,
-                    'weatherInfo':context}
+        context2 = {'list_fore24_time':list_fore24_time, 'list_fore24_pop':list_fore24_pop,
+                   'list_fore24_temp':list_fore24_temp , 'weatherInfo':context}
         # context를 둘다 스크립트에서 쓰이면 에러 날 수 있음, 다른 작업을 해주면 괜찮음.
     return render(request, 'weather.html', context2)
+
