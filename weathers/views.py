@@ -51,6 +51,7 @@ def weather(request):
         temp_min = api_data['main']['temp_min']
         temp_max = api_data['main']['temp_max']
         weather_desc = api_data['weather'][0]['description']
+        weather_main = api_data['weather'][0]['main']
         hmdt = api_data['main']['humidity']
         wind_spd = api_data['wind']['speed']
         date_time = datetime.now().strftime("%d %b %y | %I:%M:%S %p")
@@ -68,7 +69,7 @@ def weather(request):
         print("체감 온도 : {:.2f} °C".format(feels_like))
         print("최저 기온 : {:.2f} °C".format(temp_min))
         print("최고 기온 : {:.2f} °C".format(temp_max))
-        print("현재 날씨 :", weather_desc)
+        print("현재 날씨 :", weather_main)
         print("현재 습도 :", hmdt, '%')
         print("현재 풍속 :", wind_spd, 'km/h')
         print("일출 시간 :", sunrise)
@@ -109,6 +110,8 @@ def weather(request):
         context['sunset']       = time.strftime("%H:%M:%S", time.gmtime(api_data['sys']['sunset'] + 32400))
         context['pm2_5']        = airP_data['list'][0]['components']['pm2_5']
         context['pm10']         = airP_data['list'][0]['components']['pm10']
+        context['icon']         = api_data['weather'][0]['icon']
+        context['main'] = api_data['weather'][0]['main']
 
 
 
@@ -187,7 +190,7 @@ def weather(request):
         data6 = fore_data['list'][5]['dt_txt']
         data6_time = fore_data['list'][5]['dt_txt'][11:13] + '시'
         data6_temp = fore_data['list'][5]['main']['temp']
-        data6_pop = fore_data['list'][5]['pop']
+        data6_pop=fore_data['list'][5]['pop']
         list_data_time.append(data6_time)
         list_data_temp.append(data6_temp)
         list_data_pop.append(data6_pop)
@@ -375,12 +378,99 @@ def weather(request):
             list_fore24_pop = list_data_pop[7:15]
         else:
             pass
+        list_fore24_pop=[round(x*100, 1) for x in list_fore24_pop]
+        print()
         print(list_fore24_time)
-        print(list_fore24_temp)
-        print(list_fore24_pop)
+        print(list_fore24_temp, type(list_fore24_temp))
+        print(list_fore24_pop, type(list_fore24_pop))
+
+
+
+        # 하루단위 날씨예보 7일
+        # openweathermap api로 날씨 데이터 받기
+        # user_api = '7757c17e77da5628ba7ddfd9637604f3'
+        fore_daily_api_link = 'http://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&exclude=alerts&appid=7757c17e77da5628ba7ddfd9637604f3&units=metric&lang=kr'.format(
+            lat_code, lon_code)
+        # print(fore_daily_api_link)
+        fore_daily_api_link = requests.get(fore_daily_api_link)
+        fore_daily_data = fore_daily_api_link.json()
+        # print(fore_daily_data)
+
+        # create variables to store and display data
+        print("------------------------------------------------------")
+        data1 = time.strftime("%m/%d", time.gmtime(fore_daily_data['daily'][1]['dt'] + 32400))
+        data1_temp_m = fore_daily_data['daily'][1]['temp']['min']
+        data1_temp_M = fore_daily_data['daily'][1]['temp']['max']
+        data1_status = fore_daily_data['daily'][1]['weather'][0]['main']
+        data1_sta_ic = fore_daily_data['daily'][1]['weather'][0]['icon']
+        print(data1)
+        print("최소 기온 : {:.2f} °C".format(data1_temp_m))
+        print("최대 기온 : {:.2f} °C".format(data1_temp_M))
+        print("대기 상태 :", data1_status)
+        print("아이콘    :", data1_sta_ic)
+        print("------------------------------------------------------")
+        data2 = time.strftime("%m/%d", time.gmtime(fore_daily_data['daily'][2]['dt'] + 32400))
+        data2_temp_m = fore_daily_data['daily'][2]['temp']['min']
+        data2_temp_M = fore_daily_data['daily'][2]['temp']['max']
+        data2_status = fore_daily_data['daily'][2]['weather'][0]['main']
+        data2_sta_ic = fore_daily_data['daily'][2]['weather'][0]['icon']
+        print(data2)
+        print("최소 기온 : {:.2f} °C".format(data2_temp_m))
+        print("최대 기온 : {:.2f} °C".format(data2_temp_M))
+        print("대기 상태 :", data2_status)
+        print("아이콘    :", data2_sta_ic)
+        print("------------------------------------------------------")
+        data3 = time.strftime("%m/%d", time.gmtime(fore_daily_data['daily'][3]['dt'] + 32400))
+        data3_temp_m = fore_daily_data['daily'][3]['temp']['min']
+        data3_temp_M = fore_daily_data['daily'][3]['temp']['max']
+        data3_status = fore_daily_data['daily'][3]['weather'][0]['main']
+        data3_sta_ic = fore_daily_data['daily'][3]['weather'][0]['icon']
+        print(data3)
+        print("최소 기온 : {:.2f} °C".format(data3_temp_m))
+        print("최대 기온 : {:.2f} °C".format(data3_temp_M))
+        print("대기 상태 :", data3_status)
+        print("아이콘    :", data3_sta_ic)
+        print("------------------------------------------------------")
+        data4 = time.strftime("%m/%d", time.gmtime(fore_daily_data['daily'][4]['dt'] + 32400))
+        data4_temp_m = fore_daily_data['daily'][4]['temp']['min']
+        data4_temp_M = fore_daily_data['daily'][4]['temp']['max']
+        data4_status = fore_daily_data['daily'][4]['weather'][0]['main']
+        data4_sta_ic = fore_daily_data['daily'][4]['weather'][0]['icon']
+        print(data4)
+        print("최소 기온 : {:.2f} °C".format(data4_temp_m))
+        print("최대 기온 : {:.2f} °C".format(data4_temp_M))
+        print("대기 상태 :", data4_status)
+        print("아이콘    :", data4_sta_ic)
+
+        context3={}
+        context3['d_1']        = time.strftime("%m/%d", time.gmtime(fore_daily_data['daily'][1]['dt'] + 32400))
+        context3['d_1_temp_m'] = round(fore_daily_data['daily'][1]['temp']['min'],1)
+        context3['d_1_temp_M'] = round(fore_daily_data['daily'][1]['temp']['max'],1)
+        context3['d_1_temp_i'] = fore_daily_data['daily'][1]['weather'][0]['icon']
+        context3['d_1_temp_s'] = fore_daily_data['daily'][1]['weather'][0]['main']
+        context3['d_2']        = time.strftime("%m/%d", time.gmtime(fore_daily_data['daily'][2]['dt'] + 32400))
+        context3['d_2_temp_m'] = round(fore_daily_data['daily'][2]['temp']['min'],1)
+        context3['d_2_temp_M'] = round(fore_daily_data['daily'][2]['temp']['max'],1)
+        context3['d_2_temp_i'] = fore_daily_data['daily'][2]['weather'][0]['icon']
+        context3['d_2_temp_s'] = fore_daily_data['daily'][2]['weather'][0]['main']
+        context3['d_3']        = time.strftime("%m/%d", time.gmtime(fore_daily_data['daily'][3]['dt'] + 32400))
+        context3['d_3_temp_m'] = round(fore_daily_data['daily'][3]['temp']['min'],1)
+        context3['d_3_temp_M'] = round(fore_daily_data['daily'][3]['temp']['max'],1)
+        context3['d_3_temp_i'] = fore_daily_data['daily'][3]['weather'][0]['icon']
+        context3['d_3_temp_s'] = fore_daily_data['daily'][3]['weather'][0]['main']
+        context3['d_4']        = time.strftime("%m/%d", time.gmtime(fore_daily_data['daily'][4]['dt'] + 32400))
+        context3['d_4_temp_m'] = round(fore_daily_data['daily'][4]['temp']['min'],1)
+        context3['d_4_temp_M'] = round(fore_daily_data['daily'][4]['temp']['max'],1)
+        context3['d_4_temp_i'] = fore_daily_data['daily'][4]['weather'][0]['icon']
+        context3['d_4_temp_s'] = fore_daily_data['daily'][4]['weather'][0]['main']
 
         context2 = {'list_fore24_time':list_fore24_time, 'list_fore24_pop':list_fore24_pop,
-                   'list_fore24_temp':list_fore24_temp , 'weatherInfo':context}
+                   'list_fore24_temp':list_fore24_temp , 'weatherInfo':context, 'foreInfo':context3}
         # context를 둘다 스크립트에서 쓰이면 에러 날 수 있음, 다른 작업을 해주면 괜찮음.
-    return render(request, 'weather.html', context2)
+    return render(request, 'weathers.html', context2)
+
+
+
+
+
 

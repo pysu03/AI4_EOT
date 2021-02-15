@@ -75,7 +75,7 @@
         var fore24 = "{{list_fore24_time}}".replace(/&#39;/g, "\"");
         console.log(fore24)
         var forejson = JSON.parse(fore24);
-        console.log(forejson)
+        {#console.log(forejson)#}
         Highcharts.chart('container', {
           chart: {
             zoomType: 'xy'

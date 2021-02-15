@@ -1,0 +1,296 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    font-family: "roboto", sans-serif;
+}
+
+/* main_box */
+.main_weather {
+    position: absolute;
+    width: 566px;
+    height: 480px;
+    left: 24px;
+    top: 162px;
+
+    background: #F2C133;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 75px;
+}
+.main_weather .loc {
+    position: absolute;
+    width: 143px;
+    height: 27px;
+    left: 82px;
+    top: 76px;
+    
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    
+    color: #FFFFFF;
+}
+.main_weather .today_w{
+    position: absolute;
+    width: 225px;
+    height: 46px;
+    left: 205px;
+    top: 75px;
+
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+.main_weather .t_icon {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 70px;
+    top: 128px;
+}
+.main_weather .t_temp {
+    position: absolute;
+    width: 216px;
+    height: 65px;
+    left: 329px;
+    top: 173px;
+
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 50px;
+
+    color: #FFFFFF;
+}
+.main_weather .t_pm {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 64px;
+    top: 298px;
+}
+.main_weather .t_pm_t {
+    position: absolute;
+    width: 172px;
+    height: 30px;
+    left: 170px;
+    top: 320px;
+
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+.main_weather .t_wind {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 330px;
+    top: 298px;
+}
+.main_weather .t_wind_t {
+    position: absolute;
+    width: 176px;
+    height: 25px;
+    left: 414px;
+    top: 320px;
+
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+.main_weather .t_pop {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 64px;
+    top: 399px;    
+}
+.main_weather .t_pop_t {
+    position: absolute;
+    width: 54px;
+    height: 31px;
+    left: 178px;
+    top: 413px;
+    
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    
+    color: #FFFFFF;    
+}
+.main_weather .t_hm {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 330px;
+    top: 399px;
+}
+.main_weather .t_hm_t {
+    position: absolute;
+    width: 95px;
+    height: 32px;
+    left: 440px;
+    top: 416px;
+    
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    
+    color: #FFFFFF;    
+}
+.chart {
+    position: absolute;
+    width: 566px;
+    height: 480px;
+    left: 614px;
+    top: 162px;
+
+    background: #D2DDED;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 75px;
+}
+
+.d_add_weather {
+    position: absolute;
+    width: 271px;
+    height: 200px;
+    left: 24px;
+    top: 699px;
+
+    background: #F2C133;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+}
+.d_num {
+    position: absolute;
+    width: 129px;
+    height: 44px;
+    left: 24px;
+    top: 34px;
+    
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    
+    color: #FFFFFF;
+}
+.d_icon {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 34px;
+    top: 73px;    
+}
+.d_temp {
+    position: absolute;
+    width: 97px;
+    height: 53px;
+    left: 153px;
+    top: 86px;
+    
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 40px;
+    
+    color: #FFFFFF;
+}
+.more {
+    position: absolute;
+    width: 118px;
+    height: 31px;
+    left: 153px;
+    top: 169px;
+    
+    font-family: D2Coding;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    
+    color: #FFFFFF;
+}
+.d_add_weather_1 {
+    position: absolute;
+    width: 271px;
+    height: 200px;
+    left: 319px;
+    top: 699px;
+
+    background: #BAC1D0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+}
+.d_add_weather_2 {
+    position: absolute;
+    width: 271px;
+    height: 200px;
+    left: 614px;
+    top: 699px;
+
+    background: #5773CF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+}
+.d_add_weather_3 {
+    position: absolute;
+    width: 271px;
+    height: 200px;
+    left: 909px;
+    top: 699px;
+
+    background: #F2C133;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+}
+.reco_box1 {
+    position: absolute;
+    width: 212px;
+    height: 350px;
+    left: 1204px;
+    top: 162px;
+
+    background: #C4C4C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+}
+.reco_box2 {
+    position: absolute;
+    width: 212px;
+    height: 350px;
+    left: 1204px;
+    top: 549px;
+
+    background: #C4C4C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+}
