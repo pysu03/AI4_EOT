@@ -8,7 +8,9 @@ from event.utils import Calendar
 
 def index(request):
     location = request.GET.get('location', 'seoul')
+
     context = weather(location)
+    print(context['weatherInfo']['temp'])
     context['recommend'] = recommend(context['weatherInfo']['temp'])
 
     user = request.user.id

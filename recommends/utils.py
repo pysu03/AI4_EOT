@@ -1,7 +1,7 @@
 
 def recommend(data):
     currentTemp = data
-    winter = currentTemp <= 4
+    winter = currentTemp <= 5
     earlyWinter = currentTemp >=5 and currentTemp < 9
     beginWinter = currentTemp >= 9 and currentTemp < 12
     fall = currentTemp >= 12 and currentTemp < 17
