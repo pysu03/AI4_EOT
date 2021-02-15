@@ -1,112 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="11809f98-b947-41f5-a526-f136abc754ff" name="Default Changelist" comment="calendar">
-      <change afterPath="$PROJECT_DIR$/.idea/AI4_EOT.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulletin/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulletin/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulletin/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/froms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales-all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales-all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/af.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-dz.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-kw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-ly.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-ma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-sa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-tn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/az.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/bs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/cy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/de-at.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-au.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-gb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-nz.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/eo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/es-us.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr-ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr-ch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hy-am.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/is.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ka.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/kk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/mk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ne.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pt-br.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sr-cyrl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ta-in.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/uz.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/locales/zh-tw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/main.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/main.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fullcalendar/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/__init__.py" afterDir="false" />
+    <list default="true" id="11809f98-b947-41f5-a526-f136abc754ff" name="Default Changelist" comment="calendar 완료">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/froms.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales-all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales-all.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/af.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-dz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-kw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-ly.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-ma.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-sa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar-tn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/az.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/bg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/bs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/cy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/da.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/de-at.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/el.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-au.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-gb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/en-nz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/eo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/es-us.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/et.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/eu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr-ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr-ch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/gl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/he.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/hy-am.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/is.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ja.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/kk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ko.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/lv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/mk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ne.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/nn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pt-br.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/pt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sr-cyrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/sv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ta-in.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/th.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/ug.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/uk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/uz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/vi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/zh-cn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/locales/zh-tw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fullcalendar/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/event.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +140,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/event" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -194,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612773001331</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="calendar 완료">
+      <created>1612843642287</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612843642288</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,6 +209,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="signup login logout" />
     <MESSAGE value="calendar" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar" />
+    <MESSAGE value="calendar 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar 완료" />
   </component>
 </project>

@@ -1,11 +1,14 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.core.validators import RegexValidator
+from django.forms import widgets, SelectDateWidget
+from .models import User
+
 from .models import User
 
 class UserCreationForm(forms.ModelForm):
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(
-        label='Password confirmation', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -39,20 +42,11 @@ class UserChangeForm(forms.ModelForm):
     def clean_password(self):
         return self.initial["password"]
 
-# from django.contrib.auth import get_user_model
-# from django.contrib.auth.forms import UserCreationForm
-#
-#
-# class UserAdminCreationForm(UserCreationForm):
-#     """
-#     A Custom form for creating new users.
-#     """
-#
-#     class Meta:
-#         model = get_user_model()
-#         fields = ['email', 'date_of_birth']
 
 class LoginForm(forms.ModelForm):
+    email = forms.CharField(label='이메일')
+    password = forms.CharField(label='비밀번호', widget=forms.PasswordInput)
     class Meta:
         model = User
         fields = ('email', 'password')
+

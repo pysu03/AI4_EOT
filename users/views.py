@@ -1,44 +1,68 @@
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.core.exceptions import ValidationError
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-
-
-# Create your views here.
 from django.utils.http import is_safe_url
 
 from config import settings
 from .forms import UserCreationForm, LoginForm
+from .models import User
+
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
+from django.core.mail import EmailMessage
+from django.utils.encoding import force_bytes, force_text
+from .tokens import account_activation_token
 
 
 def index(request):
     return render(request, 'users/index.html')
 
-
-# 회원 가입
-# @login_required()
+# 회원가입
 def signup(request):
     form = UserCreationForm()
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/users')
+            # user =
+            # current_site = get_current_site(request)
+            # message = render_to_string('accounts/activateEmail.html', {
+            #     'user': user,
+            #     'domain': current_site.domain,
+            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token': account_activation_token.make_token(user),
+            # })
+            # mail_title = "계정 활성화 확인 이메일"
+            # mail_to = request.POST["email"]
+            # email = EmailMessage(mail_title, message, to=[mail_to])
+            # email.send()
+            return redirect('/users/signin')
+    print (form.errors)
     return render(request, 'users/signup.html', {'form': form})
-    # # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
-    # if request.method == 'POST':
-    #     # password와 confirm에 입력된 값이 같다면
-    #     if request.POST['password'] == request.POST['confirm']:
-    #         # user 객체를 새로 생성
-    #         user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
-    #         # 로그인 한다
-    #         auth.login(request, user)
-    #         return redirect('/users')
-    # # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
-    # return render(request, 'signup.html')
 
+# 이메일 인증
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoseNotExsit):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user)
+        if 'next' in request.POST:
+            return redirect(request.POST.get('next'))
+        # return redirect_after_login(request)
+        else:
+            return redirect('/users')
+    else:
+        return render(request, 'users/index.html', {'error' : '계정 활성화 오류'})
 
 # 로그인
 def signin(request):
@@ -51,30 +75,31 @@ def signin(request):
         if user is not None:
             login(request, user)
             # return redirect('/users')
-            return redirect_after_login(request)
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            # return redirect_after_login(request)
+            else:
+                return redirect('/users')
         else:
             return HttpResponse('Login failed. Try again')
     else:
         return render(request, 'users/signin.html', {'form': form})
 
-# 로그 아웃
+# 로그아웃
 def logout(request):
-    # logout으로 POST 요청이 들어왔을 때, 로그아웃 절차를 밟는다.
     if request.method == 'POST':
         auth.logout(request)
         return redirect('/users')
-
-    # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
     return render(request, 'users/signin.html')
 
-def redirect_after_login(request):
-    nxt = request.GET.get("next", None)
-    if nxt is None:
-        return redirect(settings.LOGIN_REDIRECT_URL)
-    elif not is_safe_url(
-            url=nxt,
-            allowed_hosts={request.get_host()},
-            require_https=request.is_secure()):
-        return redirect(settings.LOGIN_REDIRECT_URL)
-    else:
-        return redirect(nxt)
+# def redirect_after_login(request):
+#     nxt = request.GET.get("next", None)
+#     if nxt is None:
+#         return redirect(settings.LOGIN_REDIRECT_URL)
+#     elif not is_safe_url(
+#             url=nxt,
+#             allowed_hosts={request.get_host()},
+#             require_https=request.is_secure()):
+#         return redirect(settings.LOGIN_REDIRECT_URL)
+#     else:
+#         return redirect(nxt)

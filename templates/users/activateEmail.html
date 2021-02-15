@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{user.username}}님, 아래 링크를 클릭하여 계정을 활성화하세요:
+http://{{domain}}{% url 'activate' uid token %}
+</body>
+</html>
