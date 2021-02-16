@@ -10,6 +10,7 @@ APIKEY = '7757c17e77da5628ba7ddfd9637604f3'
 WEAHTER = 'weather'
 AIR = 'air_pollution'
 FORCAST = 'forecast'
+ONEDAY = 'onecall'
 
 def getLatAndLon(location): # 위도 경도
     app = Nominatim(user_agent='tutorial')
@@ -35,6 +36,9 @@ def getWeatherData(lat_code, lon_code):
     context['weather_desc'] = weatherData['weather'][0]['description']
     context['hmdt'] = weatherData['main']['humidity']
     context['wind_spd'] = weatherData['wind']['speed']
+    context['icon']     = weatherData['weather'][0]['icon']
+    context['main'] = weatherData['weather'][0]['main']
+    context['description'] = weatherData['weather'][0]['description']
     context['sunrise'] = time.strftime("%H:%M:%S", time.gmtime(weatherData['sys']['sunrise'] + 32400))
     context['sunset'] = time.strftime("%H:%M:%S", time.gmtime(weatherData['sys']['sunset'] + 32400))
 
@@ -80,8 +84,32 @@ def getForecastData(lat_code, lon_code):
             list_fore24_temp = list_data_temp[i:i+8]
             list_fore24_pop = list_data_pop[i:i+8]
             break
-
+    list_fore24_pop=[round(x*100, 1) for x in list_fore24_pop]
     return list_fore24_time, list_fore24_pop, list_fore24_temp
+
+
+def getOneDayData(lat_code, lon_code):
+    OneDayData = getApiData(ONEDAY, lat_code, lon_code)
+
+    # 하루 단위 날씨    
+
+    context= {}
+
+    for i in range(1,5):
+        tmp1 = 'd_'+str(i)
+        tmp2 = 'd_'+str(i)+'_temp_m'
+        tmp3 = 'd_'+str(i)+'_temp_M'
+        tmp4 = 'd_'+str(i)+'_temp_i'
+        tmp5 = 'd_'+str(i)+'_temp_s'
+        context[tmp1] = time.strftime("%m/%d", time.gmtime(OneDayData['daily'][i]['dt'] + 32400))
+        context[tmp2] = round(OneDayData['daily'][i]['temp']['min'], 1)
+        context[tmp3] = round(OneDayData['daily'][i]['temp']['max'], 1)
+        context[tmp4] = OneDayData['daily'][i]['weather'][0]['icon']
+        context[tmp5] = OneDayData['daily'][i]['weather'][0]['main']
+
+
+    return context
+
 
 def makeContext(location):
     location_name, lat_code, lon_code = getLatAndLon(location) 
@@ -93,7 +121,7 @@ def makeContext(location):
     weatherInfo.update(getAirData(lat_code, lon_code))
     context['weatherInfo'] = weatherInfo
     context['list_fore24_time'], context['list_fore24_pop'], context['list_fore24_temp'] = getForecastData(lat_code, lon_code)
-    
+    context['foreInfo'] = getOneDayData(lat_code, lon_code)
     return context
 
 

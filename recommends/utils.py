@@ -1,3 +1,6 @@
+import os
+import pandas as pd
+from django.conf import settings
 
 def recommend(data):
     currentTemp = data
@@ -40,5 +43,44 @@ def recommend(data):
     return context
 
 
+def weatherLoadMusic(weatherType):
+    fileName = os.path.join(settings.BASE_DIR, 'static/data/weather_song_data.csv')
+    songRecommend_df = pd.read_csv(fileName, encoding='CP949')
+    songRecommend_df_weather = songRecommend_df.loc[songRecommend_df['weather'].str.contains(weatherType)]
+    recommendSong = songRecommend_df_weather[['title', 'artist', 'weather']]
+    loadClean = recommendSong.sample(n=2, replace=True)
+    musicdata = loadClean.values.tolist()
+    return musicdata
+
+def normalLoadMusic() :
+    fileName = os.path.join(settings.BASE_DIR, 'static/data/weather_song_data.csv')
+    songRecommend_df = pd.read_csv(fileName, encoding='CP949')
+    recommendSong = songRecommend_df[['title', 'artist', 'weather']]
+    loadClean = recommendSong.sample(n=2, replace=True)
+    musicdata = loadClean.values.tolist()
+    return musicdata
 
 
+def recommend_music(temp, description):
+    currentTemp = temp
+    currentIcon = description
+    clean = "clean"
+    rain = "rain"
+    snow = "snow"
+    cloud = "clouds"
+
+    if currentTemp >= 28 :
+        musics = weatherLoadMusic('더운')
+    elif currentIcon.find(clean) != -1:
+        musics = weatherLoadMusic('맑음')
+    elif currentIcon.find(rain) != -1 :
+        musics = weatherLoadMusic('비')
+    elif currentIcon.find(snow) != -1:
+        musics = weatherLoadMusic('눈')
+    elif currentIcon.find(cloud) != -1 :
+        musics = weatherLoadMusic('흐림')
+    else :
+        musics = normalLoadMusic()
+
+    musicdata = ['  '.join(x[0:2]) for x in musics]
+    return musicdata

@@ -12,12 +12,31 @@ Home
   <div class="row">
     <div class="col-8">
       <div class="card">
-        <div class="card-header">
+        <div class="card-body">
           <figure class="highcharts-figure">
             <div id="container"></div>
             <p class="highcharts-description"></p>
           </figure>
+        </div>        
+      </div>
+    </div>        
+    <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">오늘의 추천의상은 ?</h3>
+        <div class="today-clothes">
+          <h3>{{ recommend.text }}</h3>
+          {% with 'resources/clothes/'|add:recommend.filename as image_src %}
+            <img src="{% static image_src %}" style="width:240px; height:80px;">
+          {% endwith %}
         </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
         <div class="card-body">
           <dl class="row">
             <dt class="col-sm-3">{{weatherInfo.location}} </dt>
@@ -37,26 +56,18 @@ Home
           </dl>
         </div>        
       </div>
-    </div>        
+    </div>
     <div class="col-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">오늘의 추천의상은 ?</h3>
-        <div class="today-clothes">
-          <h3>{{ recommend.text }}</h3>
-          {% with 'resources/clothes/'|add:recommend.filename as image_src %}
-            <img src="{% static image_src %}" style="width:240px; height:80px;">
-
-{#             ljh 해당부분 작업 했습니다!            #}
-
-        <div class = 'today-music'><h2>Today's recommended music</h2></div>
-
-{#             ljh 해당부분 작업 했습니다!            #}
-
-          {% endwith %}
+      <div class="card">
+        <div class="card-body">
+            <div class = 'today-music'>
+              <h2>Today's recommended music</h2>
+              <p>{{recommend_music1}}</p>
+              <p>{{recommend_music2}}</p>        
+            </div>
         </div>
       </div>
-    </div>
+      </div>
     </div>
   </div>
 </div>    
@@ -123,52 +134,6 @@ Home
     }]
   });
 </script>
-
-    {#             ljh 해당부분 작업 했습니다!            #}
-<script>
-            function selectMusics(data) {
-                $.ajax({
-                  type: "POST",
-                  url: "recommends/musicRecommend.py",
-                  data: { param: text }
-                }).done(function() {
-                    let currentTemp = data.main.temp;
-                    let musics = document.querySelector('.today-music');
-                    let currentIcon = data.weather[0].description;
-                    var clean = "clean";
-                    var rain = "rain";
-                    var snow = "snow";
-                    var cloud = "cloud";
-                    console.log(data.weather[0].description);
-
-                    if(currentTemp >= 28) {
-                        alert("더움!");
-                        musics = {{ loadHot }};
-                    }
-                    else if(currentIcon.indexOf(clean) != -1) {
-                        alert("맑음!");
-                        musics = {{ loadClean }};
-                    }
-                    else if (currentIcon.indexOf(rain) != -1) {
-                        alert("비!");
-                        musics = {{ loadRain }}
-                    }
-                    else if (currentIcon.indexOf(snow) != -1) {
-                        alert("눈!");
-                        musics = {{ loadSnow }}
-                    }
-                    else if (cloud.indexOf(currentIcon) != -1) {
-                        alert("흐림!");
-                        musics = {{ loadCloud }}
-                    }
-                    else {
-                        alert("아무것도 포함되지 않음!");
-                        musics = {{ loadNormal }}
-                    }
-                });
-            }
-</script>
-    {#             ljh 해당부분 작업 했습니다!            #}
 
 {% endblock content %}
 
