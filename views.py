@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -59,3 +59,15 @@ class EventDeleteView(generic.DeleteView):
     model = Event
     template_name = 'event/event_delete_confirm.html'
     success_url = '/'
+
+
+def checkAjax(request):
+    print('request checkAjax ')
+    id = request.POST['id']
+    stat = request.POST['stat']
+    print('param - ', id , stat)
+    event = Event.objects.get(id=id)
+    event.completed = stat
+    event.save()
+    list = ['success']
+    return JsonResponse(list, safe=False)

@@ -7,4 +7,5 @@ urlpatterns = [
     path('<int:event_id>/details/', views.event_details, name='event-detail'),
     path('saveNback/', views.saveNback, name='saveNback'),
     path('event/<int:pk>/delete', views.EventDeleteView.as_view(), name='event_delete'),
+    path('checkajax/', views.checkAjax, name='checkajax'),
 ]
