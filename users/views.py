@@ -18,14 +18,11 @@ from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_text
 from .tokens import account_activation_token
 
-<<<<<<< HEAD
-=======
 
 def index(request):
     return render(request, 'users/index.html')
 
 # 회원가입
->>>>>>> remotes/origin/feature/login/ykk
 def signup(request):
     form = UserCreationForm()
     if request.method == 'POST':
@@ -33,16 +30,11 @@ def signup(request):
 
         if form.is_valid():
             form.save()
-<<<<<<< HEAD
 
             email = form.cleaned_data.get("email") 
             password = form.cleaned_data.get("password1") 
             user = authenticate(username=email, password=password) 
             if user is not None: 
-                login(request, user) 
-                return redirect_after_login(request)
-    return render(request, 'users/signup.html', {'form': form})
-=======
             # user =
             # current_site = get_current_site(request)
             # message = render_to_string('accounts/activateEmail.html', {
@@ -55,8 +47,9 @@ def signup(request):
             # mail_to = request.POST["email"]
             # email = EmailMessage(mail_title, message, to=[mail_to])
             # email.send()
-            return redirect('/users/signin')
-    print (form.errors)
+                login(request, user) 
+                return redirect('/users/signin')
+
     return render(request, 'users/signup.html', {'form': form})
 
 # 이메일 인증
@@ -77,7 +70,6 @@ def activate(request, uidb64, token):
             return redirect('/users')
     else:
         return render(request, 'users/index.html', {'error' : '계정 활성화 오류'})
->>>>>>> remotes/origin/feature/login/ykk
 
 def signin(request):
     form = LoginForm()
@@ -88,33 +80,23 @@ def signin(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
-<<<<<<< HEAD
-            return redirect_after_login(request)
-=======
             # return redirect('/users')
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             # return redirect_after_login(request)
             else:
-                return redirect('/users')
->>>>>>> remotes/origin/feature/login/ykk
+                return redirect('/')
         else:
             return HttpResponse('Login failed. Try again')
     else:
         return render(request, 'users/signin.html', {'form': form})
 
-<<<<<<< HEAD
-def logout(request):
-    auth.logout(request)    
-    return redirect('/')
-=======
 # 로그아웃
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('/users')
     return render(request, 'users/signin.html')
->>>>>>> remotes/origin/feature/login/ykk
 
 # def redirect_after_login(request):
 #     nxt = request.GET.get("next", None)

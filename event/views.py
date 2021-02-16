@@ -11,21 +11,6 @@ from .models import Event
 from .utils import Calendar
 from core.utils import get_date, prev_month, next_month
 
-class CalendarView(LoginRequiredMixin, generic.ListView):
-    login_url = 'signin'
-    # redirect_field_name = 'next'
-    model = Event
-    template_name = 'event/calendar.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        d = get_date(self.request.GET.get('month', None))
-        cal = Calendar(d.year, d.month)
-        html_cal = cal.formatmonth(withyear=True)
-        context['calendar'] = mark_safe(html_cal)
-        context['prev_month'] = prev_month(d)
-        context['next_month'] = next_month(d)
-        return context
 
 @login_required(login_url='signin')
 def create_event(request):
@@ -33,19 +18,24 @@ def create_event(request):
     if request.POST and form.is_valid():
         title = form.cleaned_data['title']
         description = form.cleaned_data['description']
-        start_time = form.cleaned_data['start_time']
+        time = form.cleaned_data['time']
+        address = form.cleaned_data['address']
+        completed = form.cleaned_data['completed']
+
         Event.objects.get_or_create(
             user=request.user,
             title=title,
             description=description,
-            start_time=start_time,
+            time=time,
+            address=address,
+            completed=completed,
         )
         return redirect('/')
     return render(request, 'event/event.html', {'form': form})
 
 class EventEdit(generic.UpdateView):
     model = Event
-    fields = ['title', 'description', 'start_time']
+    fields = ['title', 'description', 'time', 'address']
     template_name = 'event/event.html'
 
 @login_required(login_url='signin')
@@ -64,4 +54,8 @@ def saveNback(request):
     event.completed = saveCB
     event.save()
     return redirect('/')
-    return render(request, 'event/event_details.html', context)
+
+class EventDeleteView(generic.DeleteView):
+    model = Event
+    template_name = 'event/event_delete_confirm.html'
+    success_url = '/'

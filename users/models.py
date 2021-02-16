@@ -83,8 +83,4 @@ class User(AbstractBaseUser):
 
     @property
     def is_staff(self):
-<<<<<<< HEAD
         return self.is_admin
-=======
-        return self.is_admin
->>>>>>> remotes/origin/feature/login/ykk
