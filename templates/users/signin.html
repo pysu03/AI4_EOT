@@ -2,7 +2,7 @@
 
 {% block css %} 
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/signin.css' %}">
+<link rel="stylesheet" href="{% static 'css/sign.css' %}">
 {% endblock %}
 
 {% block page_name %} 
@@ -10,13 +10,15 @@ Login
 {% endblock page_name %}
 
 {% block content %}
-<form method="POST" action="{% url 'signin' %}">
+<div class="container">
+    <div class="row justify-content-md-center">
+<form method="POST" class="login-form" action="{% url 'signin' %}">
     {% csrf_token %}
-    <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
+    <div class="login-container">
         {% if request.GET.next %}
             <input type="hidden" name="next" value="{{request.GET.next}}">
         {% endif %}
-        <div class="loginbox bg-white">
+        <div class="loginbox">
             <div class="loginbox-title">로그인</div>
             <div class="loginbox-textbox">
                 <input name="email" type="text" class="form-control" placeholder="이메일">
@@ -36,4 +38,6 @@ Login
         </div>
     </div>
 </form>
+</div>
+</div>
 {% endblock content %}

@@ -72,6 +72,7 @@ Home
   </div>
 </div>    
 <script>
+  const fore24 = "{{list_fore24_time}}".replace(/&#x27;/g, "").replace(/\[/g, "").replace(/\]/g, "").split(',')
   const list_fore24_pop = {{ list_fore24_pop }}
   const list_fore24_temp = {{ list_fore24_temp }}
   Highcharts.chart('container', {
@@ -79,7 +80,7 @@ Home
     title: { text: '다음 24시간 기온 및 강수확률' },
     subtitle: { text: 'Source: openweathermap.org' },
     xAxis: [{
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      categories: fore24,
       crosshair: true
     }],
     yAxis: [{ // Primary yAxis

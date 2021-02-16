@@ -85,6 +85,7 @@ def getForecastData(lat_code, lon_code):
             list_fore24_pop = list_data_pop[i:i+8]
             break
     list_fore24_pop=[round(x*100, 1) for x in list_fore24_pop]
+ 
     return list_fore24_time, list_fore24_pop, list_fore24_temp
 
 

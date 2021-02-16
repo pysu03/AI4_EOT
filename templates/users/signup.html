@@ -2,7 +2,7 @@
 
 {% block css %} 
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/sign.css' %}">
 {% endblock %}
 
 
@@ -11,7 +11,9 @@ Signup
 {% endblock page_name %}
 
 {% block content %}
-<form method="POST" action="{% url 'signup' %}">
+<div class="container">
+    <div class="row justify-content-md-center">
+<form method="POST" class="login-form" action="{% url 'signup' %}">
     {% csrf_token %}
     <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
         <div class="loginbox bg-white">
@@ -62,4 +64,6 @@ Signup
     </div>
 
 </form>
+</div>
+</div>
 {% endblock content %}
