@@ -55,7 +55,7 @@ class User(AbstractBaseUser):
         ('W', '여성(Woman)'),
     )
     gender = models.CharField(max_length=1, choices=GENDERS)
-    phone = models.CharField(max_length=20)
+    phone = models.CharField(max_length=11)
 
     address1 = models.CharField(max_length=20) #시/도
     address2 = models.CharField(max_length=20) #시/군/구
@@ -64,7 +64,7 @@ class User(AbstractBaseUser):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     objects = UserManager()
 
@@ -83,4 +83,8 @@ class User(AbstractBaseUser):
 
     @property
     def is_staff(self):
+<<<<<<< HEAD
         return self.is_admin
+=======
+        return self.is_admin
+>>>>>>> remotes/origin/feature/login/ykk
