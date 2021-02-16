@@ -65,11 +65,10 @@ def activate(request, uidb64, token):
         login(request, user)
         if 'next' in request.POST:
             return redirect(request.POST.get('next'))
-        # return redirect_after_login(request)
         else:
-            return redirect('/users')
+            return redirect('/')
     else:
-        return render(request, 'users/index.html', {'error' : '계정 활성화 오류'})
+        return render(request, '/', {'error' : '계정 활성화 오류'})
 
 def signin(request):
     form = LoginForm()
@@ -80,10 +79,8 @@ def signin(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
-            # return redirect('/users')
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
-            # return redirect_after_login(request)
             else:
                 return redirect('/')
         else:
@@ -91,21 +88,7 @@ def signin(request):
     else:
         return render(request, 'users/signin.html', {'form': form})
 
-# 로그아웃
 def logout(request):
-    if request.method == 'POST':
-        auth.logout(request)
-        return redirect('/users')
-    return render(request, 'users/signin.html')
-
-# def redirect_after_login(request):
-#     nxt = request.GET.get("next", None)
-#     if nxt is None:
-#         return redirect(settings.LOGIN_REDIRECT_URL)
-#     elif not is_safe_url(
-#             url=nxt,
-#             allowed_hosts={request.get_host()},
-#             require_https=request.is_secure()):
-#         return redirect(settings.LOGIN_REDIRECT_URL)
-#     else:
-#         return redirect(nxt)
+    auth.logout(request)
+    return redirect('/')
+    

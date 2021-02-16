@@ -37,6 +37,7 @@ class UserManager(BaseUserManager):
             address2=address2,
             address3=address3,
         )
+        
         user.is_admin = True
         user.save(using=self._db)
         return user
@@ -64,7 +65,7 @@ class User(AbstractBaseUser):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     objects = UserManager()
 
