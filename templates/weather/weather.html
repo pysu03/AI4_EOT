@@ -38,8 +38,11 @@ Home
             </div>
         </div>
         <div class="col">
-            <h1>c</h1>
             <div class="chart">
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                    <p class="highcharts-description"></p>
+                </figure>
             </div>
         </div>
     </div>
@@ -146,4 +149,68 @@ Home
 
     </div>
 </div>
+<script>
+    const fore24 = "{{list_fore24_time}}".replace(/&#x27;/g, "").replace(/\[/g, "").replace(/\]/g, "").split(',')
+    const list_fore24_pop = {{ list_fore24_pop }}
+    const list_fore24_temp = {{ list_fore24_temp }}
+    Highcharts.chart('container', {
+      chart: { zoomType: 'xy'},
+      title: { text: '다음 24시간 기온 및 강수확률' },
+      subtitle: { text: 'Source: openweathermap.org' },
+      xAxis: [{
+        categories: fore24,
+        crosshair: true
+      }],
+      yAxis: [{ // Primary yAxis
+        labels: {
+          format: '{value}°C',
+          style: { color: Highcharts.getOptions().colors[1]}
+        },
+        title: {
+          text: '기온',
+          style: { color: Highcharts.getOptions().colors[1]}
+        }
+      }, { // Secondary yAxis
+        title: {
+          text: '강수확률',
+          style: {color: Highcharts.getOptions().colors[0]}
+        },
+        labels: {
+          format: '{value} %',
+          style: {color: Highcharts.getOptions().colors[0]}
+        },
+        opposite: true
+      }],
+      tooltip: {shared: true},
+      legend: {
+        layout: 'vertical',
+        align: 'left',
+        x: 120,
+        verticalAlign: 'top',
+        y: 100,
+        floating: true,
+        backgroundColor:
+          Highcharts.defaultOptions.legend.backgroundColor || // theme
+          'rgba(255,255,255,0.25)'
+      },
+      series: [
+      {
+        name: '강수확률',
+        type: 'column',
+        yAxis: 1,
+        data:  list_fore24_pop,
+        tooltip: {
+          valueSuffix: '%'
+        }
+      }, 
+      {
+        name: '기온',
+        type: 'spline',
+        data:  list_fore24_temp,
+        tooltip: {
+          valueSuffix: '°C'
+        }
+      }]
+    });
+  </script>
 {% endblock content %}

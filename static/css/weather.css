@@ -1,41 +1,37 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
-body{
-    font-family: "roboto", sans-serif;
-}
 
 /* main_box */
 .main_weather_yellow {
-    width: 566px;
     height: 480px;
     background: #F2C133;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
 }
 .main_weather_gray {
-    width: 566px;
     height: 480px;
     background: #BAC1D0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
 }
 .main_weather_blue {
-    width: 566px;
     height: 480px;
     background: #5773CF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
 }
 .main_weather_withe {
-    width: 566px;
     height: 480px;
     background: #E5EAEF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
 }
+
+.chart {
+    height: 480px;
+    background: #D2DDED;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 75px;
+}
+
 .loc {
     position: absolute;
     width: 143px;
@@ -176,19 +172,9 @@ body{
 
     color: #FFFFFF;
 }
-.chart {
-    width: 566px;
-    height: 480px;
-    background: #D2DDED;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 75px;
-}
+
 .d_add_weather_yellow {
-    position: absolute;
-    width: 271px;
     height: 200px;
-    left: 24px;
-    top: 699px;
 
     background: #F2C133;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -196,11 +182,7 @@ body{
 
 }
 .d_add_weather_gray {
-    position: absolute;
-    width: 271px;
     height: 200px;
-    left: 24px;
-    top: 699px;
 
     background: #BAC1D0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -208,11 +190,7 @@ body{
 
 }
 .d_add_weather_blue {
-    position: absolute;
-    width: 271px;
     height: 200px;
-    left: 24px;
-    top: 699px;
 
     background: #5773CF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -220,11 +198,7 @@ body{
 
 }
 .d_add_weather_white {
-    position: absolute;
-    width: 271px;
     height: 200px;
-    left: 24px;
-    top: 699px;
 
     background: #E5EAEF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
