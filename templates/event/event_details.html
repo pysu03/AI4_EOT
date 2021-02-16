@@ -8,6 +8,8 @@ Event Edit
 {% endblock page_name %}
 
 
+
+
 {% block content %}
 <style>
     .strike{
@@ -18,20 +20,6 @@ Event Edit
 <div class="container">
     <div class="row justify-content-center">
             <div class="card">
-                <div class="card-header">
-                    <form method="POST" action="{% url 'saveNback' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="id" id="id" value="{{event.id}}">
-                        <div class="form-row">
-                            <div class="col">
-                                <input type="text" class="form-control" readonly id="saveCB" name="saveCB" value="{{board.completed}}" />
-                            </div>
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">저장</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 <div class="card-body">
                     <div class="card-title">
                         <div class="form-check">
@@ -41,11 +29,28 @@ Event Edit
                             </label>
                         </div>
                     </div>
-                    <p class="card-text">작성 시간 : {{ event.time }}</p>
-                    <p class="card-text"> 주소 : {{ event.address }}</p>
+                    <p class="card-text"> 시간 : {{ event.time }}</p>
+                    <p class="card-text"> 장소 : {{ event.address }}</p>
                     <p class="card-text"> 상세 내용 : {{ event.description }}</p>
-                    <a class="btn btn-info right mr-2" href="{% url 'event_edit' event.pk %}"> Edit Event </a>
-                    <a class="btn btn-info right mr-2" href="{% url 'event_edit' event.pk %}"> Delete Event </a>
+                    <a class="btn btn-info right mr-2 " href="{% url 'event_edit' event.pk %}" > 수정 </a>
+                    <a class="btn btn-dark" href="{% url 'event_delete' event.pk %}"  > 삭제 </a> <br>
+
+
+
+                    <div style="padding: 5px 0px; float: left">
+                        <form method="POST" action="{% url 'saveNback' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" id="id" value="{{event.id}}">
+                            <div class="form-row">
+                                <div  class="col">
+                                    <button type="submit" class="btn btn-primary" >돌아가기</button>
+                                </div>
+                                <div style="display:none;" class="col">
+                                    <input type="text"  class="form-control" readonly id="saveCB" name="saveCB" value="{{event.completed}}" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
     </div>
@@ -57,12 +62,53 @@ Event Edit
             if($("#completed").is(":checked")){
                 $('label').toggleClass('strike');
                 $("#saveCB").val('completed');
+
+
+                $.ajax({
+                    url: "{% url 'checkajax' %}",
+                    dataType: "json",
+                    type: "post",
+                    data: { 'csrfmiddlewaretoken' : '{{csrf_token}}', id : $("#id").val() , stat : $("#saveCB").val() },
+                    success: function (data) {
+
+                    },
+                    error: function (request, status, error) {
+                        alert("실패")
+                    }
+                });
             }
             else{
                 $('label').toggleClass('strike');
                 $("#saveCB").val('uncompleted');
+
+                $.ajax({
+                    url: "{% url 'checkajax' %}",
+                    dataType: "json",
+                    type: "post",
+                    data: { 'csrfmiddlewaretoken' : '{{csrf_token}}', id : $("#id").val() , stat : $("#saveCB").val() },
+                    success: function (data) {
+
+                    },
+                    error: function (request, status, error) {
+                        alert("실패")
+                    }
+                });
             };
         });
     });
+    $(function(){
+        if($("#saveCB").val()=="completed"){
+            $("#completed").prop("checked", true);
+            $('label').toggleClass('strike');
+        }
+        else{
+            $("#completed").prop("checked", False);
+            $('label').toggleClass('strike');
+        }
+    });
+
+
+
+
 </script>
 {% endblock %}
