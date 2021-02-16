@@ -11,33 +11,53 @@ Home
 
 {% block content %}
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col">
             {% if weatherInfo.main == "Clear"  %}
-            <div class="main_weather_yellow">
+            <div class="weather_yellow bx_l">
             {% elif weatherInfo.main  == "Clouds" or weatherInfo.main == "Atmosphere" %}
-            <div class="main_weather_gray">
+            <div class="weather_gray bx_l">
             {% elif weatherInfo.main == "Rain" or weatherInfo.main == "Drizzle" or weatherInfo.main == "Thunderstorm" %}
-            <div class="main_weather_blue">
+            <div class="weather_blue bx_l">
             {% else %}
-            <div class="main_weather_withe">
+            <div class="weather_withe bx_l">
             {% endif %}
-                <span class="loc">{{weatherInfo.location}}</span>
-                <span class="today_w">오늘의 날씨</span>
-                <img class="t_icon" src="http://openweathermap.org/img/wn/{{ weatherInfo.icon }}@2x.png" alt="" />
-                <span class="t_temp">{{weatherInfo.temp_min}} / {{weatherInfo.temp_max}} °C</span>
-                <span class="t_pm" style="color:#B22F28"><i class="fas fa-smog fa-4x"></i></span>
-                <span class="t_pm_t">{{weatherInfo.pm10}}㎍/m³</span>
-                <span class="t_wind" style="color:#4899F9"><i class="fas fa-wind fa-4x"></i></span>
-                <span class="t_wind_t">{{weatherInfo.wind_spd}}km/h</span>
-                <span class="t_pop" style="color:#646CCD"><i class="fas fa-umbrella fa-4x"></i></span>
-                <span class="t_pop_t">{{list_fore24_pop.2}} %</span>
-                <span class="t_hm" style="color:#646CCD"><i class="fas fa-tint fa-4x"></i></span>
-                <span class="t_hm_t">{{weatherInfo.hmdt}}%</span>
+                <div class="row pt-1">
+                    <div class="col">
+                        <h3 class="text-white text-center pt-3">{{weatherInfo.location}} <span>오늘의 날씨</span></h3>
+                    </div>
+                </div>
+                <div class="row pl-1 pr-1">
+                    <div class="col">
+                        <p class="text-center"><img src="http://openweathermap.org/img/wn/{{ weatherInfo.icon }}@2x.png" alt="" /></p>
+                        <p class="text-white text-center align-middle">{{weatherInfo.temp_min}} °C / {{weatherInfo.temp_max}} °C</p>
+                    </div>
+                </div>
+                <div class="row pl-1 pr-1 pb-2">
+                    <div class="col">
+                        <p class="text-center"><i style="color:#B22F28" class="fas fa-smog fa-4x"></i></p>
+                        <p class="text-white text-center">{{weatherInfo.pm10}}㎍/m³</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center"><i style="color:#4899F9" class="fas fa-wind fa-4x"></i></p>
+                        <p class="text-white text-center">{{weatherInfo.wind_spd}}km/h</p>
+                    </div>
+                </div>
+                <div class="row pl-1 pr-1 pb-2">
+                    <div class="col">
+                        <p class="text-center" ><i style="color:#646CCD" class="fas fa-umbrella fa-4x"></i></p>
+                        <p class="text-white text-center" >{{list_fore24_pop.2}} %</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center" ><i style="color:#646CCD" class="fas fa-tint fa-4x"></i></p>
+                        <p class="text-white text-center" >{{weatherInfo.hmdt}}%</p>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="col">
+        <div class="col pt-5">
             <div class="chart">
                 <figure class="highcharts-figure">
                     <div id="container"></div>
@@ -47,102 +67,130 @@ Home
         </div>
     </div>
     
-    <div class="row">
+    <div class="row pt-5 mb-5">
         <div class="col">
             {% if foreInfo.d_1_temp_s == "Clear" %}
-            <div class="d_add_weather_yellow">
+            <div class="weather_yellow bx_s">
             {% elif foreInfo.d_1_temp_s == "Clouds" or foreInfo.d_1_temp_s == "Atmosphere" %}
-            <div class="d_add_weather_gray">
+            <div class="weather_gray bx_s">
             {% elif foreInfo.d_1_temp_s == "Rain" or foreInfo.d_1_temp_s == "Drizzle" or foreInfo.d_1_temp_s == "Thunderstorm" %}
-            <div class="d_add_weather_blue">
+            <div class="weather_blue bx_s">
             {% else %}
-            <div class="d_add_weather_white">
+            <div class="weather_white bx_s">
             {% endif %}
-                <div>
-                    <h2 class="d_num">{{foreInfo.d_1}}&nbsp;&nbsp;&nbsp;날씨</h2>
+                <div class="row pt-3">
+                    <div class="col">
+                        <h4 class="text-white text-center">{{foreInfo.d_1}}날씨</h4>
+                    </div>
                 </div>
-                <div>
-                    <span>
-                        <img class="d_icon" src="http://openweathermap.org/img/wn/{{foreInfo.d_1_temp_i}}@2x.png" alt="" />
-                    </span>
-                    <span class="d_temp" style="text-align:right">{{foreInfo.d_1_temp_m}} / {{foreInfo.d_1_temp_M}} °C</span>
+                <div class="row">
+                    <div class="col pl-3">
+                        <img src="http://openweathermap.org/img/wn/{{foreInfo.d_1_temp_i}}@2x.png" alt="" />
+                    </div>
+                    <div class="col pt-3 pr-3">
+                        <p class="text-white text-center"> {{foreInfo.d_1_temp_m}} °C</p>
+                        <p class="text-white text-center"> {{foreInfo.d_1_temp_M}} °C</p>
+                    </div>
                 </div>
-                <div>
-                    <a href="#" id="more1" class="more">More Info</a>
+                <div class="row">
+                    <div class="col pr-5">
+                        <p class="text-right"><a href="#" class="text-white" id="more1">More Info</a></p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="col">
             {% if foreInfo.d_2_temp_s == "Clear" %}
-            <div class="d_add_weather_yellow">
+            <div class="weather_yellow bx_s">
             {% elif foreInfo.d_2_temp_s == "Clouds" or foreInfo.d_2_temp_s == "Atmosphere" %}
-            <div class="d_add_weather_gray">
+            <div class="weather_gray bx_s">
             {% elif foreInfo.d_2_temp_s == "Rain" or foreInfo.d_2_temp_s == "Drizzle" or foreInfo.d_2_temp_s == "Thunderstorm" %}
-            <div class="d_add_weather_blue">
+            <div class="weather_blue bx_s">
             {% else %}
-            <div class="d_add_weather_white">
+            <div class="weather_white bx_s">
             {% endif %}
-                <div>
-                    <h2 class="d_num">{{foreInfo.d_2}}&nbsp;&nbsp;&nbsp;날씨</h2>
+                <div class="row pt-3">
+                    <div class="col">
+                        <h4 class="text-white text-center">{{foreInfo.d_2}}날씨</h4>
+                    </div>
                 </div>
-                <div>
-                    <span>
-                        <img class="d_icon" src="http://openweathermap.org/img/wn/{{foreInfo.d_2_temp_i}}@2x.png" alt="" />
-                    </span>
-                    <span class="d_temp" style="text-align:right">{{foreInfo.d_2_temp_m}} / {{foreInfo.d_2_temp_M}} °C</span>
+                <div class="row">
+                    <div class="col pl-3">
+                        <img src="http://openweathermap.org/img/wn/{{foreInfo.d_2_temp_i}}@2x.png" alt="" />
+                    </div>
+                    <div class="col pt-3 pr-3">
+                        <p class="text-white text-center"> {{foreInfo.d_2_temp_m}} °C</p>
+                        <p class="text-white text-center"> {{foreInfo.d_2_temp_M}} °C</p>
+                    </div>
                 </div>
-                <div>
-                    <a href="#" id="more1" class="more">More Info</a>
+                <div class="row">
+                    <div class="col pr-5">
+                        <p class="text-right"><a href="#" class="text-white" id="more1">More Info</a></p>
+                    </div>
                 </div>
             </div>
         </div>        
 
         <div class="col">
             {% if foreInfo.d_3_temp_s == "Clear" %}
-            <div class="d_add_weather_yellow">
+            <div class="weather_yellow bx_s">
             {% elif foreInfo.d_3_temp_s == "Clouds" or foreInfo.d_3_temp_s == "Atmosphere" %}
-            <div class="d_add_weather_gray">
+            <div class="weather_gray bx_s">
             {% elif foreInfo.d_3_temp_s == "Rain" or foreInfo.d_3_temp_s == "Drizzle" or foreInfo.d_3_temp_s == "Thunderstorm" %}
-            <div class="d_add_weather_blue">
+            <div class="weather_blue bx_s">
             {% else %}
-            <div class="d_add_weather_white">
+            <div class="weather_white bx_s">
             {% endif %}
-                <div>
-                    <h2 class="d_num">{{foreInfo.d_3}}&nbsp;&nbsp;&nbsp;날씨</h2>
+                <div class="row pt-3">
+                    <div class="col">
+                        <h4 class="text-white text-center">{{foreInfo.d_3}}날씨</h4>
+                    </div>
                 </div>
-                <div>
-                    <span>
-                        <img class="d_icon" src="http://openweathermap.org/img/wn/{{foreInfo.d_3_temp_i}}@2x.png" alt="" />
-                    </span>
-                    <span class="d_temp" style="text-align:right">{{foreInfo.d_3_temp_m}} / {{foreInfo.d_3_temp_M}} °C</span>
+                <div class="row">
+                    <div class="col pl-3">
+                        <img src="http://openweathermap.org/img/wn/{{foreInfo.d_3_temp_i}}@2x.png" alt="" />
+                    </div>
+                    <div class="col pt-3 pr-3">
+                        <p class="text-white text-center"> {{foreInfo.d_3_temp_m}} °C</p>
+                        <p class="text-white text-center"> {{foreInfo.d_3_temp_M}} °C</p>
+                    </div>
                 </div>
-                <div>
-                    <a href="#" id="more1" class="more">More Info</a>
+                <div class="row">
+                    <div class="col pr-5">
+                        <p class="text-right"><a href="#" class="text-white" id="more1">More Info</a></p>
+                    </div>
                 </div>
             </div>
         </div>     
         <div class="col">
             {% if foreInfo.d_4_temp_s == "Clear" %}
-            <div class="d_add_weather_yellow">
+            <div class="weather_yellow bx_s">
             {% elif foreInfo.d_4_temp_s == "Clouds" or foreInfo.d_4_temp_s == "Atmosphere" %}
-            <div class="d_add_weather_gray">
+            <div class="weather_gray bx_s">
             {% elif foreInfo.d_4_temp_s == "Rain" or foreInfo.d_4_temp_s == "Drizzle" or foreInfo.d_4_temp_s == "Thunderstorm" %}
-            <div class="d_add_weather_blue">
+            <div class="weather_blue bx_s">
             {% else %}
-            <div class="d_add_weather_white">
+            <div class="weather_white bx_s">
             {% endif %}
-                <div>
-                    <h2 class="d_num">{{foreInfo.d_4}}&nbsp;날씨</h2>
+                <div class="row pt-3">
+                    <div class="col">
+                        <h4 class="text-white text-center">{{foreInfo.d_4}}날씨</h4>
+                    </div>
                 </div>
-                <div>
-                    <span>
-                        <img class="d_icon" src="http://openweathermap.org/img/wn/{{foreInfo.d_4_temp_i}}@2x.png" alt="" />
-                    </span>
-                    <span class="d_temp" style="text-align:right">{{foreInfo.d_4_temp_m}} / {{foreInfo.d_4_temp_M}} °C</span>
+                <div class="row">
+                    <div class="col pl-3">
+                        <img src="http://openweathermap.org/img/wn/{{foreInfo.d_4_temp_i}}@2x.png" alt="" />
+                    </div>
+                    <div class="col pt-3 pr-3">
+                        <p class="text-white text-center"> {{foreInfo.d_4_temp_m}} °C</p>
+                        <p class="text-white text-center"> {{foreInfo.d_4_temp_M}} °C</p>
+                    </div>
                 </div>
-                <div>
-                    <a href="#" id="more1" class="more">More Info</a>
+                <div class="row">
+                    <div class="col pr-5">
+                        <p class="text-right"><a href="#" class="text-white" id="more1">More Info</a></p>
+                    </div>
                 </div>
             </div>
         </div>
