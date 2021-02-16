@@ -1,3 +1,33 @@
+@font-face { 
+  font-family: 'dxhanlgrum'; 
+  src: url('../fonts/DXHanlgrum-KSCpc-EUC-H.woff2') format('woff2'), 
+       url('../fonts/DXHanlgrum-KSCpc-EUC-H.woff') format('woff'), 
+       url('../fonts/DXHanlgrum-KSCpc-EUC-H.ttf') format('truetype');
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+@font-face { 
+  font-family: 'nanumgothic'; 
+  src: url('../fonts/NanumGothic.woff2') format('woff2'), 
+       url('../fonts/NanumGothic.woff') format('woff'), 
+       url('../fonts/NanumGothic.ttf') format('truetype');
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+body {
+  font-family: 'nanumgothic', sans-serif ;
+  line-height: 1;
+  letter-spacing: 0;
+}
+h1,h2,h3.h4,h5,h6 {
+  font-family: 'dxhanlgrum', 'nanumgothic', sans-serif ;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+
 .navbar {
     background-color: #728adc;
   }
