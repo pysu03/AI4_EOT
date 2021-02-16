@@ -11,6 +11,17 @@ from .models import Event
 from .utils import Calendar
 from core.utils import get_date, prev_month, next_month
 
+def event(request):
+    user = request.user.id
+    context = {}
+    d = get_date(request.GET.get('month', None))
+    cal = Calendar(d.year, d.month)
+    html_cal = cal.formatmonth(user, withyear=True)
+    context['calendar'] = mark_safe(html_cal)
+    context['prev_month'] = prev_month(d)
+    context['next_month'] = next_month(d)
+    return render(request, 'event/index.html', context)
+
 
 @login_required(login_url='signin')
 def create_event(request):

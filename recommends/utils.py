@@ -15,7 +15,7 @@ def recommend(data):
 
     context = {}
     if winter :
-        context['text'] = "패딩, 두꺼운 코트, 누빔 옷, 기모, 목도리"
+        context['text'] = ['패딩', '두꺼운 코트', '누빔 옷', '기모', '목도리']
         context['filename'] = "winter1.png"
     elif earlyWinter :
         context['text'] = "울코트, 히트텍, 가죽 옷, 기모"

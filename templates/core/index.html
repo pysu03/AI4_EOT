@@ -25,7 +25,9 @@ Home
       <div class="card-body">
         <h5 class="card-title">오늘의 추천의상은 ?</h3>
         <div class="today-clothes">
-          <h3>{{ recommend.text }}</h3>
+          {% for text in recommend.text  %}
+          <h3>{{ text }}</h3>
+          {% endfor %}
           {% with 'resources/clothes/'|add:recommend.filename as image_src %}
             <img src="{% static image_src %}" style="width:240px; height:80px;">
           {% endwith %}
