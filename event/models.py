@@ -10,7 +10,6 @@ class Event(models.Model):
     title = models.CharField(max_length=200, unique=True)
     description = models.TextField()
     time = models.DateTimeField()
-    # end_time = models.DateTimeField()
     address = models.CharField(max_length=100)
     completed = models.CharField(max_length=30, default="uncompleted")
     created_date = models.DateTimeField(default=timezone.now)
@@ -24,15 +23,7 @@ class Event(models.Model):
     @property
     def get_html_url(self):
         url = reverse('event-detail', args=(self.id,))
-        return f'<a href="{url}"> {self.title} </a>'
-
-
-# class EventMember(models.Model):
-#     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#
-#     class Meta:
-#         unique_together = ['event', 'user']
-#
-#     def __str__(self):
-#         return str(self.user)
+        if self.completed == 'completed' :
+            return f'<a href="{url}" style="text-decoration:line-through"> {self.title} </a>'
+        else:
+            return f'<a href="{url}"> {self.title} </a>'
