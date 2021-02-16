@@ -13,29 +13,34 @@ Home
 
 <div class="container">
     <div class="row">
-        {% if weatherInfo.main == "Clear"  %}
-        <div class="main_weather_yellow">
-        {% elif weatherInfo.main  == "Clouds" or weatherInfo.main == "Atmosphere" %}
-        <div class="main_weather_gray">
-        {% elif weatherInfo.main == "Rain" or weatherInfo.main == "Drizzle" or weatherInfo.main == "Thunderstorm" %}
-        <div class="main_weather_blue">
-        {% else %}
-        <div class="main_weather_withe">
-        {% endif %}
-            <span class="loc">{{weatherInfo.location}}</span>
-            <span class="today_w">오늘의 날씨</span>
-            <img class="t_icon" src="http://openweathermap.org/img/wn/{{ weatherInfo.icon }}@2x.png" alt="" />
-            <span class="t_temp">{{weatherInfo.temp_min}} / {{weatherInfo.temp_max}} °C</span>
-            <span class="t_pm" style="color:#B22F28"><i class="fas fa-smog fa-4x"></i></span>
-            <span class="t_pm_t">{{weatherInfo.pm10}}㎍/m³</span>
-            <span class="t_wind" style="color:#4899F9"><i class="fas fa-wind fa-4x"></i></span>
-            <span class="t_wind_t">{{weatherInfo.wind_spd}}km/h</span>
-            <span class="t_pop" style="color:#646CCD"><i class="fas fa-umbrella fa-4x"></i></span>
-            <span class="t_pop_t">{{list_fore24_pop.2}} %</span>
-            <span class="t_hm" style="color:#646CCD"><i class="fas fa-tint fa-4x"></i></span>
-            <span class="t_hm_t">{{weatherInfo.hmdt}}%</span>
+        <div class="col">
+            {% if weatherInfo.main == "Clear"  %}
+            <div class="main_weather_yellow">
+            {% elif weatherInfo.main  == "Clouds" or weatherInfo.main == "Atmosphere" %}
+            <div class="main_weather_gray">
+            {% elif weatherInfo.main == "Rain" or weatherInfo.main == "Drizzle" or weatherInfo.main == "Thunderstorm" %}
+            <div class="main_weather_blue">
+            {% else %}
+            <div class="main_weather_withe">
+            {% endif %}
+                <span class="loc">{{weatherInfo.location}}</span>
+                <span class="today_w">오늘의 날씨</span>
+                <img class="t_icon" src="http://openweathermap.org/img/wn/{{ weatherInfo.icon }}@2x.png" alt="" />
+                <span class="t_temp">{{weatherInfo.temp_min}} / {{weatherInfo.temp_max}} °C</span>
+                <span class="t_pm" style="color:#B22F28"><i class="fas fa-smog fa-4x"></i></span>
+                <span class="t_pm_t">{{weatherInfo.pm10}}㎍/m³</span>
+                <span class="t_wind" style="color:#4899F9"><i class="fas fa-wind fa-4x"></i></span>
+                <span class="t_wind_t">{{weatherInfo.wind_spd}}km/h</span>
+                <span class="t_pop" style="color:#646CCD"><i class="fas fa-umbrella fa-4x"></i></span>
+                <span class="t_pop_t">{{list_fore24_pop.2}} %</span>
+                <span class="t_hm" style="color:#646CCD"><i class="fas fa-tint fa-4x"></i></span>
+                <span class="t_hm_t">{{weatherInfo.hmdt}}%</span>
+            </div>
         </div>
-        <div class="chart">
+        <div class="col">
+            <h1>c</h1>
+            <div class="chart">
+            </div>
         </div>
     </div>
     

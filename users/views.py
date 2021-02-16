@@ -48,7 +48,7 @@ def signup(request):
             # email = EmailMessage(mail_title, message, to=[mail_to])
             # email.send()
                 login(request, user) 
-                return redirect('/users/signin')
+                return redirect('/')
 
     return render(request, 'users/signup.html', {'form': form})
 
@@ -84,7 +84,7 @@ def signin(request):
             else:
                 return redirect('/')
         else:
-            return HttpResponse('Login failed. Try again')
+            return render(request, 'users/signin.html', {'form': form})
     else:
         return render(request, 'users/signin.html', {'form': form})
 

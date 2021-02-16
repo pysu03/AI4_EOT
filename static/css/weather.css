@@ -9,45 +9,29 @@ body{
 
 /* main_box */
 .main_weather_yellow {
-    position: absolute;
     width: 566px;
     height: 480px;
-    left: 24px;
-    top: 162px;
-
     background: #F2C133;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
 }
 .main_weather_gray {
-    position: absolute;
     width: 566px;
     height: 480px;
-    left: 24px;
-    top: 162px;
-
     background: #BAC1D0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
 }
 .main_weather_blue {
-    position: absolute;
     width: 566px;
     height: 480px;
-    left: 24px;
-    top: 162px;
-
     background: #5773CF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
 }
 .main_weather_withe {
-    position: absolute;
     width: 566px;
     height: 480px;
-    left: 24px;
-    top: 162px;
-
     background: #E5EAEF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
@@ -193,12 +177,8 @@ body{
     color: #FFFFFF;
 }
 .chart {
-    position: absolute;
     width: 566px;
     height: 480px;
-    left: 614px;
-    top: 162px;
-
     background: #D2DDED;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 75px;
@@ -349,102 +329,4 @@ body{
     background: #E5EAEF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
-
 }
-.d_add_weather_2_yellow {
-    position: absolute;
-    width: 271px;
-    height: 200px;
-    left: 614px;
-    top: 699px;
-
-    background: #F2C133;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-
-}
-.d_add_weather_2_gray {
-    position: absolute;
-    width: 271px;
-    height: 200px;
-    left: 614px;
-    top: 699px;
-
-    background: #BAC1D0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-
-}
-.d_add_weather_2_blue {
-    position: absolute;
-    width: 271px;
-    height: 200px;
-    left: 614px;
-    top: 699px;
-
-    background: #5773CF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-
-}
-.d_add_weather_2_white {
-    position: absolute;
-    width: 271px;
-    height: 200px;
-    left: 614px;
-    top: 699px;
-
-    background: #E5EAEF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-
-}
-.d_add_weather_3_yellow {
-    position: absolute;
-    width: 271px;
-    height: 200px;
-    left: 909px;
-    top: 699px;
-
-    background: #F2C133;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-
-}
-.d_add_weather_3_gray {
-    position: absolute;
-    width: 271px;
-    height: 200px;
-    left: 909px;
-    top: 699px;
-
-    background: #BAC1D0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-
-}
-.d_add_weather_3_blue {
-    position: absolute;
-    width: 271px;
-    height: 200px;
-    left: 909px;
-    top: 699px;
-
-    background: #5773CF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-
-}
-.d_add_weather_3_white {
-    position: absolute;
-    width: 271px;
-    height: 200px;
-    left: 909px;
-    top: 699px;
-
-    background: #E5EAEF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-
-}
-
