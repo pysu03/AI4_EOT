@@ -1,9 +1,7 @@
-{% extends "base.html" %}
 
-{% block css %} 
+{% extends "base.html" %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/sign.css' %}">
-{% endblock %}
+{% load bootstrap4 %}
 
 {% block page_name %} 
 Login
@@ -11,33 +9,14 @@ Login
 
 {% block content %}
 <div class="container">
-    <div class="row justify-content-md-center">
-<form method="POST" class="login-form" action="{% url 'signin' %}">
-    {% csrf_token %}
-    <div class="login-container">
-        {% if request.GET.next %}
-            <input type="hidden" name="next" value="{{request.GET.next}}">
-        {% endif %}
-        <div class="loginbox">
-            <div class="loginbox-title">로그인</div>
-            <div class="loginbox-textbox">
-                <input name="email" type="text" class="form-control" placeholder="이메일">
-            </div>
-            <div class="loginbox-textbox">
-                <input name="password" type="password" class="form-control" placeholder="비밀번호">
-            </div>
-            <div class="loginbox-forgot">
-                <a href=""> 비밀번호 찾기</a>
-            </div>
-            <div class="loginbox-submit">
-                <input type="submit" class="btn btn-primary btn-block" value="로그인">
-            </div>
-            <div class="loginbox-signup">
-                <a href="{% url 'signup' %}">회원가입</a>
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-8">
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         </div>
     </div>
-</form>
-</div>
 </div>
 {% endblock content %}

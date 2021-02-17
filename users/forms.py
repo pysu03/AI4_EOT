@@ -46,7 +46,7 @@ class UserChangeForm(forms.ModelForm):
 class LoginForm(forms.ModelForm):
     email = forms.CharField(label='이메일')
     password = forms.CharField(label='비밀번호', widget=forms.PasswordInput)
+
     class Meta:
         model = User
         fields = ('email', 'password')
-
