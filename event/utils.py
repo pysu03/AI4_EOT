@@ -18,7 +18,7 @@ class Calendar(HTMLCalendar):
                 d += f'<li> {event.get_html_url} </li>'
 
         if day != 0:
-            return f"<td style='width: 14%;'><span class='date'>{day}</span><ul style='list-style:none;'> {d} </ul></td>"
+            return f"<td style='width: 14%; font-size:1.1rem'><p class='date'>{day}</p><ul style='margin: 0;  padding: 0; list-style:none;'> {d} </ul></td>"
         return '<td></td>'
 
     # formats a week as a tr

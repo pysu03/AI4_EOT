@@ -20,6 +20,7 @@ def event(request):
     context['calendar'] = mark_safe(html_cal)
     context['prev_month'] = prev_month(d)
     context['next_month'] = next_month(d)
+    context['event'] = True
     return render(request, 'event/index.html', context)
 
 
@@ -42,7 +43,7 @@ def create_event(request):
             completed=completed,
         )
         return redirect('/event/')
-    return render(request, 'event/event.html', {'form': form})
+    return render(request, 'event/event.html', {'form': form, 'event':True})
 
 class EventEdit(generic.UpdateView):
     model = Event

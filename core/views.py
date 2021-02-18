@@ -22,4 +22,5 @@ def index(request):
     context['prev_month'] = prev_month(d)
     context['next_month'] = next_month(d)
 
+    context['home'] = True
     return render(request, 'core/index.html', context)
