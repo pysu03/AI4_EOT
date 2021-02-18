@@ -27,6 +27,12 @@ h1,h2,h3.h4,h5,h6 {
   letter-spacing: 0;
 }
 
+.my-primary{
+  background-color: #f3f5fd;
+}
+.my-secondary {
+  background-color: #6b8bf1;
+}
 
 .navbar {
     background-color: #728adc;

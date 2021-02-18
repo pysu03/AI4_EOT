@@ -95,20 +95,25 @@ def getOneDayData(lat_code, lon_code):
     # 하루 단위 날씨    
 
     context= {}
-
-    for i in range(1,5):
+    temp_main = []
+    time_main = []
+    for i in range(0,7):
         tmp1 = 'd_'+str(i)
         tmp2 = 'd_'+str(i)+'_temp_m'
         tmp3 = 'd_'+str(i)+'_temp_M'
         tmp4 = 'd_'+str(i)+'_temp_i'
         tmp5 = 'd_'+str(i)+'_temp_s'
+        time_main.append(time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(OneDayData['hourly'][0]['dt'] + 32400))[11:13] + '시')
+        temp_main.append(OneDayData['hourly'][i]['temp'])
         context[tmp1] = time.strftime("%m/%d", time.gmtime(OneDayData['daily'][i]['dt'] + 32400))
         context[tmp2] = round(OneDayData['daily'][i]['temp']['min'], 1)
         context[tmp3] = round(OneDayData['daily'][i]['temp']['max'], 1)
         context[tmp4] = OneDayData['daily'][i]['weather'][0]['icon']
         context[tmp5] = OneDayData['daily'][i]['weather'][0]['main']
 
-
+    context['temp_main'] = temp_main
+    context['time_main'] = time_main
+    context['data1_pop'] = round(OneDayData['hourly'][0]['pop'] * 100)
     return context
 
 
