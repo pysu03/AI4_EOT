@@ -8,16 +8,16 @@
 }
 
 @font-face { 
-  font-family: 'nanumgothic'; 
-  src: url('../fonts/NanumGothic.woff2') format('woff2'), 
-       url('../fonts/NanumGothic.woff') format('woff'), 
-       url('../fonts/NanumGothic.ttf') format('truetype');
+  font-family: 'hoonGothic';
+  src: url('../fonts/HoonGothicgulimR.woff2') format('woff2'),
+       url('../fonts/HoonGothicgulimR.woff') format('woff'),
+       url('../fonts/HoonGothicgulimR.ttf') format('truetype');
   font-weight: normal; 
   font-style: normal; 
 }
 
 body {
-  font-family: 'nanumgothic', sans-serif ;
+  font-family: 'hoonGothic', sans-serif ;
   line-height: 1;
   letter-spacing: 0;
 }
@@ -27,6 +27,12 @@ h1,h2,h3.h4,h5,h6 {
   letter-spacing: 0;
 }
 
+.my-primary{
+  background-color: #f3f5fd;
+}
+.my-secondary {
+  background-color: #6b8bf1;
+}
 
 .navbar {
     background-color: #728adc;
@@ -64,17 +70,7 @@ h1,h2,h3.h4,h5,h6 {
   .navbar .navbar-nav .nav-item.show .nav-link:hover,
   .navbar .navbar-nav .nav-item.show .nav-link:focus {
     color: #151616;
-    background-color: #f4f5fc;
-  }
-  .navbar .navbar-toggler {
-    border-color: #f4f5fc;
-  }
-  .navbar .navbar-toggler:hover,
-  .navbar .navbar-toggler:focus {
-    background-color: #f4f5fc;
-  }
-  .navbar .navbar-toggler .navbar-toggler-icon {
-    color: #edf0f5;
+    font-size: 1.2rem;
   }
   .navbar .navbar-collapse,
   .navbar .navbar-form {

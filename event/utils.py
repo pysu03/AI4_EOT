@@ -19,7 +19,7 @@ class Calendar(HTMLCalendar):
                 d += f'<li> {event.get_html_url} </li>'
 
         if day != 0:
-            return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
+            return f"<td style='width: 14%; font-size:1.1rem'><p class='date'>{day}</p><ul style='margin: 0;  padding: 0; list-style:none;'> {d} </ul></td>"
         return '<td></td>'
 
     # formats a week as a tr
@@ -33,7 +33,7 @@ class Calendar(HTMLCalendar):
     # filter events by year and month
     def formatmonth(self, user, withyear=True):
         events = Event.objects.filter(time__year=self.year, time__month=self.month)
-        cal = f'<table class="table table-bordered">\n'
+        cal = f'<table class="table table-bordered" style="height: 100%; min-height:568px" >\n'
         cal += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
         cal += f'{self.formatweekheader()}\n'
         for week in self.monthdays2calendar(self.year, self.month):

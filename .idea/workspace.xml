@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="11809f98-b947-41f5-a526-f136abc754ff" name="Default Changelist" comment="login 일단 commit 3">
+    <list default="true" id="11809f98-b947-41f5-a526-f136abc754ff" name="Default Changelist" comment="calendar 완료">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/sign.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/sign.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/signin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/nav.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +19,6 @@
         <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="origin/master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -55,7 +48,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">

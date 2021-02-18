@@ -20,6 +20,7 @@ def event(request):
     context['calendar'] = mark_safe(html_cal)
     context['prev_month'] = prev_month(d)
     context['next_month'] = next_month(d)
+    context['event'] = True
     return render(request, 'event/index.html', context)
 
 
@@ -41,8 +42,8 @@ def create_event(request):
             address=address,
             completed=completed,
         )
-        return redirect('/')
-    return render(request, 'event/event.html', {'form': form})
+        return redirect('/event/')
+    return render(request, 'event/event.html', {'form': form, 'event':True})
 
 class EventEdit(generic.UpdateView):
     model = Event
@@ -64,12 +65,12 @@ def saveNback(request):
     event = Event.objects.get(id=id)
     event.completed = saveCB
     event.save()
-    return redirect('/')
+    return redirect('/event/')
 
 class EventDeleteView(generic.DeleteView):
     model = Event
     template_name = 'event/event_delete_confirm.html'
-    success_url = '/'
+    success_url = '/event/'
 
 
 def checkAjax(request):
