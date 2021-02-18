@@ -17,12 +17,12 @@ Home
     <div class="col-8 mr-2 bx_l my-primary">
       <div class="row pt-3">
         <div class="col">
-          <p class="font-weight-bold">{{ weatherInfo.location }}</p>
+          <p class="pl-2 pt-3 font-weight-bold" style="font-size: 1.4rem;">{{ weatherInfo.location }}</p>
           <p> {{ weatherInfo.date_time }}</p>
         </div>
       </div>
       <div class="row pt-3">
-        <div class="col-8">
+        <div class="col-7">
           <div class="text-center">
             {% if weatherInfo.weather_main == "Clear" %}
             <img class="w-50" src="{% static 'img/Clear.svg' %}"/>
@@ -41,14 +41,14 @@ Home
             {% endif %}
           </div>          
         </div>
-        <div class="col-3 align-self-center">
-          <p class="font-weight-bold">{{weatherInfo.temp}} °C</p>
-          <p> 체감 온도 : {{weatherInfo.feels_like}} °C </p>
-          <p> 미세 먼지 : {{weatherInfo.pm10}} ㎍/m³ </p>
-          <p> 강수 확률 : {{foreInfo.data1_pop}} % </p>
+        <div class="col-4 align-self-center">
+          <p style="font-size: 2.1rem;" class="font-weight-bold">{{weatherInfo.temp}} °C</p>
+          <p style="font-size: 1rem;"> 체감 온도 : {{weatherInfo.feels_like}} °C </p>
+          <p style="font-size: 1rem;"> 미세 먼지 : {{weatherInfo.pm10}} ㎍/m³ </p>
+          <p style="font-size: 1rem;"> 강수 확률 : {{foreInfo.data1_pop}} % </p>
         </div>
       </div>
-      <div class="row pt-3">
+      <div class="row h-50 pt-3">
         <div class="col pb-5">
           <div class="chart">
             <figure class="highcharts-figure">
@@ -70,14 +70,14 @@ Home
               <p>{{ text }}</p>
             {% endfor %}
             {% with 'resources/clothes/'|add:recommend.filename as image_src %}
-              <img src="{% static image_src %}" style="width:240px; height:80px;">
+              <img class="pb-2" src="{% static image_src %}" style="width:240px; height:80px;">
             {% endwith %}
           </div>
         </div>
       </div>
       <div class="row mt-5">
         <div class="col my-secondary text-white bx_l">
-          <div class = 'today-music'>
+          <div class = 'today-music pb-1'>
             <h5 class="text-center pt-3 pb-3">추천 음악</h5>
             {% for music in recommend_music  %}
               <p class="text-center pb-1">{{ music }}</p>
@@ -96,6 +96,7 @@ Home
   const list_fore24_temp = {{ foreInfo.temp_main }}
   Highcharts.chart('container', {        
         chart: {
+            height: 300,
             type: 'line'
         },
         title: {

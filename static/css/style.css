@@ -8,16 +8,16 @@
 }
 
 @font-face { 
-  font-family: 'nanumgothic'; 
-  src: url('../fonts/NanumGothic.woff2') format('woff2'), 
-       url('../fonts/NanumGothic.woff') format('woff'), 
-       url('../fonts/NanumGothic.ttf') format('truetype');
+  font-family: 'hoonGothic'; 
+  src: url('../fonts/HoonGothicgulimR.woff2') format('woff2'), 
+       url('../fonts/HoonGothicgulimR.woff') format('woff'), 
+       url('../fonts/HoonGothicgulimR.ttf') format('truetype');
   font-weight: normal; 
   font-style: normal; 
 }
 
 body {
-  font-family: 'nanumgothic', sans-serif ;
+  font-family: 'hoonGothic', sans-serif ;
   line-height: 1;
   letter-spacing: 0;
 }

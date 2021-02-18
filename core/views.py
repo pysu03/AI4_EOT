@@ -14,6 +14,7 @@ def index(request):
     context['recommend_music'] = recommend_music(context['weatherInfo']['temp'], context['weatherInfo']['description'])
      
     user = request.user.id
+    print(request.user)
     d = get_date(request.GET.get('month', None))
     cal = Calendar(d.year, d.month)
     html_cal = cal.formatmonth(user, withyear=True)

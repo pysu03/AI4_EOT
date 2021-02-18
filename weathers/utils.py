@@ -103,7 +103,7 @@ def getOneDayData(lat_code, lon_code):
         tmp3 = 'd_'+str(i)+'_temp_M'
         tmp4 = 'd_'+str(i)+'_temp_i'
         tmp5 = 'd_'+str(i)+'_temp_s'
-        time_main.append(time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(OneDayData['hourly'][0]['dt'] + 32400))[11:13] + '시')
+        time_main.append(time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(OneDayData['hourly'][i]['dt'] + 32400))[11:13] + '시')
         temp_main.append(OneDayData['hourly'][i]['temp'])
         context[tmp1] = time.strftime("%m/%d", time.gmtime(OneDayData['daily'][i]['dt'] + 32400))
         context[tmp2] = round(OneDayData['daily'][i]['temp']['min'], 1)
@@ -122,7 +122,7 @@ def makeContext(location):
     weatherInfo = {}
     context = {}
     weatherInfo['location'] = location_name
-    weatherInfo['date_time'] = datetime.now().strftime("%d %b %y | %I:%M:%S %p")
+    weatherInfo['date_time'] = datetime.now().strftime("%Y-%m-%d | %I:%M:%S %p")
     weatherInfo.update(getWeatherData(lat_code, lon_code))
     weatherInfo.update(getAirData(lat_code, lon_code))
     context['weatherInfo'] = weatherInfo

@@ -6,13 +6,13 @@
     <a class="nav-link active" href="{% url 'weather_detail' %}">Weather</a>
     <a class="nav-link active" href="{% url 'event' %}">Event</a>
   </ul>
-  <form class="form-inline my-2 my-lg-0">
+  <form class="form-inline my-2 my-lg-0 pr-3">
     <input class="form-control mr-sm-2" type="search" name="location" placeholder="서울" aria-label="Search">
     <button class="btn my-bg my-2 my-sm-0" type="submit">Search</button>
   </form>
   <ul class="nav navbar-nav navbar-right">
     {% if user.is_authenticated %}
-      <li>{{ user.username }}</li>
+      <li class="text-white text-center align-middle" style="font-size: 1.2rem;">{{ user }}</li>
       <li><a class="nav-link" href="{% url 'logout' %}">로그아웃</a></li>
     {% else %}
       <li><a class="nav-link" href="{% url 'signup' %}">회원가입</a></li>
