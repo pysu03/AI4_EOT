@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block page_name %} 
+Event Create
+{% endblock page_name %}
+
+{% block content %}
+<div class="container mt-3 pt-3">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <form method="post">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

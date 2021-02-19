@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+  <div class="collapse navbar-collapse">
+  <ul class="navbar-nav mr-auto">
+    {% if home %} 
+    <li class="nav-item show">
+    {% else %}
+    <li class="nav-item ">
+    {% endif %}
+      <a class="nav-link" href="{% url 'home' %}">Home</a>
+    </li>
+    {% if weather %} 
+    <li class="nav-item show">
+    {% else %}
+    <li class="nav-item ">
+    {% endif %}
+      <a class="nav-link" href="{% url 'weather_detail' %}">Weather</a>
+    </li>
+    {% if event %} 
+    <li class="nav-item show">
+    {% else %}
+    <li class="nav-item ">
+    {% endif %}
+      <a class="nav-link" href="{% url 'event' %}">Scheduler</a>
+    </li>    
+  </ul>
+</div>
+  <form class="form-inline my-2 my-lg-0 pr-3">
+    <input class="form-control mr-sm-2" type="search" name="location" placeholder="서울" aria-label="Search">
+    <button class="btn my-bg my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <ul class="nav navbar-nav navbar-right">
+    {% if user.is_authenticated %}
+      <li><a class="nav-link" style="font-size: 1.2rem;">{{ user }}</a></li>
+      <li><a class="nav-link" href="{% url 'logout' %}">로그아웃</a></li>
+    {% else %}
+      <li><a class="nav-link" href="{% url 'signup' %}">회원가입</a></li>
+      <li><a class="nav-link" href="{% url 'signin' %}">로그인</a></li>
+    {% endif %}
+    <ul>
+</div>
+</nav>

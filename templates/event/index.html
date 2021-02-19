@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block page_name %} 
+Event Create
+{% endblock page_name %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card">
+      <div class="card-header text-right">
+        <a class="btn btn-info right mr-2" href="{% url 'event' %}?{{ prev_month }}"> 이전 달 </a>
+        <a class="btn btn-info right mr-2" href="{% url 'event' %}?{{ next_month }} "> 다음 달 </a>
+        <a class="btn btn-primary" href="{% url 'event_new' %}"> 할일 추가 </a>
+      </div>
+      <div class="card-body">
+      {{ calendar }}
+      </div>    
+  </div>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block css %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/weather.css' %}">
+{% endblock %}
+
+{% block page_name %} 
+Home 
+{% endblock page_name %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            {% if weatherInfo.main == "Clear"  %}
+            <div class="weather_yellow bx_l">
+            {% elif weatherInfo.main  ==  "Snow" %}
+             <div class="weather_withe bx_l">
+            {% elif weatherInfo.main == "Rain" or weatherInfo.main == "Drizzle" or weatherInfo.main == "Thunderstorm" %}
+            <div class="weather_blue bx_l">
+            {% else %}
+            <div class="weather_gray bx_l">
+            {% endif %}
+                <div class="row pt-1">
+                    <div class="col">
+                        <h3 class="text-white text-center pt-3">{{weatherInfo.location}} <span>오늘의 날씨</span></h3>
+                    </div>
+                </div>
+                <div class="row pl-1 pr-1">
+                    <div class="col">
+                        <p class="text-center"><img src="http://openweathermap.org/img/wn/{{ weatherInfo.icon }}@2x.png" alt="" /></p>
+                        <p class="text-white text-center align-middle">{{weatherInfo.temp_min}} °C / {{weatherInfo.temp_max}} °C</p>
+                    </div>
+                </div>
+                <div class="row pl-1 pr-1 pb-2">
+                    <div class="col">
+                        <p class="text-center"><i style="color:#B22F28" class="fas fa-smog fa-4x"></i></p>
+                        <p class="text-white text-center">{{weatherInfo.pm10}}㎍/m³</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center"><i style="color:#4899F9" class="fas fa-wind fa-4x"></i></p>
+                        <p class="text-white text-center">{{weatherInfo.wind_spd}}km/h</p>
+                    </div>
+                </div>
+                <div class="row pl-1 pr-1 pb-2">
+                    <div class="col">
+                        <p class="text-center" ><i style="color:#646CCD" class="fas fa-umbrella fa-4x"></i></p>
+                        <p class="text-white text-center" >{{list_fore24_pop.2}} %</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center" ><i style="color:#646CCD" class="fas fa-tint fa-4x"></i></p>
+                        <p class="text-white text-center" >{{weatherInfo.hmdt}}%</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col pt-5">
+            <div class="chart">
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                    <p class="highcharts-description"></p>
+                </figure>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row pt-5 mb-5">
+        <div class="col">
+            {% if foreInfo.d_1_temp_s == "Clear"  %}
+            <div class="weather_yellow bx_s">
+            {% elif foreInfo.d_1_temp_s  ==  "Snow" %}
+             <div class="weather_withe bx_s">
+            {% elif foreInfo.d_1_temp_s == "Rain" or foreInfo.d_1_temp_s == "Drizzle" or foreInfo.d_1_temp_s == "Thunderstorm" %}
+            <div class="weather_blue bx_s">
+            {% else %}
+            <div class="weather_gray bx_s">
+            {% endif %}
+                <div class="row pt-3">
+                    <div class="col">
+                        <h4 class="text-white text-center">{{foreInfo.d_1}}날씨</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pl-3">
+                        <img src="http://openweathermap.org/img/wn/{{foreInfo.d_1_temp_i}}@2x.png" alt="" />
+                    </div>
+                    <div class="col pt-3 pr-3">
+                        <p class="text-white text-center"> {{foreInfo.d_1_temp_m}} °C</p>
+                        <p class="text-white text-center"> {{foreInfo.d_1_temp_M}} °C</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pr-5">
+                        <p class="text-right"><a href="#" class="text-white" id="more1"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            {% if foreInfo.d_2_temp_s == "Clear"  %}
+            <div class="weather_yellow bx_s">
+            {% elif foreInfo.d_2_temp_s  ==  "Snow" %}
+             <div class="weather_withe bx_s">
+            {% elif foreInfo.d_2_temp_s == "Rain" or foreInfo.d_2_temp_s == "Drizzle" or foreInfo.d_2_temp_s == "Thunderstorm" %}
+            <div class="weather_blue bx_s">
+            {% else %}
+            <div class="weather_gray bx_s">
+            {% endif %}
+                <div class="row pt-3">
+                    <div class="col">
+                        <h4 class="text-white text-center">{{foreInfo.d_2}}날씨</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pl-3">
+                        <img src="http://openweathermap.org/img/wn/{{foreInfo.d_2_temp_i}}@2x.png" alt="" />
+                    </div>
+                    <div class="col pt-3 pr-3">
+                        <p class="text-white text-center"> {{foreInfo.d_2_temp_m}} °C</p>
+                        <p class="text-white text-center"> {{foreInfo.d_2_temp_M}} °C</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pr-5">
+                        <p class="text-right"><a href="#" class="text-white" id="more1"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+        <div class="col">
+            {% if foreInfo.d_3_temp_s == "Clear"  %}
+            <div class="weather_yellow bx_s">
+            {% elif foreInfo.d_3_temp_s  ==  "Snow" %}
+             <div class="weather_withe bx_s">
+            {% elif foreInfo.d_3_temp_s == "Rain" or foreInfo.d_3_temp_s == "Drizzle" or foreInfo.d_3_temp_s == "Thunderstorm" %}
+            <div class="weather_blue bx_s">
+            {% else %}
+            <div class="weather_gray bx_s">
+            {% endif %}
+                <div class="row pt-3">
+                    <div class="col">
+                        <h4 class="text-white text-center">{{foreInfo.d_3}}날씨</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pl-3">
+                        <img src="http://openweathermap.org/img/wn/{{foreInfo.d_3_temp_i}}@2x.png" alt="" />
+                    </div>
+                    <div class="col pt-3 pr-3">
+                        <p class="text-white text-center"> {{foreInfo.d_3_temp_m}} °C</p>
+                        <p class="text-white text-center"> {{foreInfo.d_3_temp_M}} °C</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pr-5">
+                        <p class="text-right"><a href="#" class="text-white" id="more1"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>     
+        <div class="col">
+            {% if foreInfo.d_4_temp_s == "Clear"  %}
+            <div class="weather_yellow bx_s">
+            {% elif foreInfo.d_4_temp_s  ==  "Snow" %}
+             <div class="weather_withe bx_s">
+            {% elif foreInfo.d_4_temp_s == "Rain" or foreInfo.d_4_temp_s == "Drizzle" or foreInfo.d_4_temp_s == "Thunderstorm" %}
+            <div class="weather_blue bx_s">
+            {% else %}
+            <div class="weather_gray bx_s">
+            {% endif %}
+                <div class="row pt-3">
+                    <div class="col">
+                        <h4 class="text-white text-center">{{foreInfo.d_4}}날씨</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pl-3">
+                        <img src="http://openweathermap.org/img/wn/{{foreInfo.d_4_temp_i}}@2x.png" alt="" />
+                    </div>
+                    <div class="col pt-3 pr-3">
+                        <p class="text-white text-center"> {{foreInfo.d_4_temp_m}} °C</p>
+                        <p class="text-white text-center"> {{foreInfo.d_4_temp_M}} °C</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pr-5">
+                        <p class="text-right"><a href="#" class="text-white" id="more1"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    const fore24 = "{{list_fore24_time}}".replace(/&#x27;/g, "").replace(/\[/g, "").replace(/\]/g, "").split(',')
+    const list_fore24_pop = {{ list_fore24_pop }}
+    const list_fore24_temp = {{ list_fore24_temp }}
+    Highcharts.chart('container', {
+      chart: { zoomType: 'xy'},
+      title: { text: '다음 24시간 기온 및 강수확률' },
+      subtitle: { text: 'Source: openweathermap.org' },
+      xAxis: [{
+        categories: fore24,
+        crosshair: true
+      }],
+      yAxis: [{ // Primary yAxis
+        labels: {
+          format: '{value}°C',
+          style: { color: Highcharts.getOptions().colors[1]}
+        },
+        title: {
+          text: '기온',
+          style: { color: Highcharts.getOptions().colors[1]}
+        }
+      }, { // Secondary yAxis
+        title: {
+          text: '강수확률',
+          style: {color: Highcharts.getOptions().colors[0]}
+        },
+        labels: {
+          format: '{value} %',
+          style: {color: Highcharts.getOptions().colors[0]}
+        },
+        opposite: true
+      }],
+      tooltip: {shared: true},
+      legend: {
+        layout: 'vertical',
+        align: 'left',
+        x: 120,
+        verticalAlign: 'top',
+        y: 100,
+        floating: true,
+        backgroundColor:
+          Highcharts.defaultOptions.legend.backgroundColor || // theme
+          'rgba(255,255,255,0.25)'
+      },
+      series: [
+      {
+        name: '강수확률',
+        type: 'column',
+        yAxis: 1,
+        data:  list_fore24_pop,
+        tooltip: {
+          valueSuffix: '%'
+        }
+      }, 
+      {
+        name: '기온',
+        type: 'spline',
+        data:  list_fore24_temp,
+        tooltip: {
+          valueSuffix: '°C'
+        }
+      }]
+    });
+  </script>
+{% endblock content %}

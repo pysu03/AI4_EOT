@@ -1,0 +1,25 @@
+.bx_l {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+.bx_s { 
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.weather_yellow {
+    background: #75C3F8;
+}
+.weather_gray {
+    background: #BAC1D0;
+}
+.weather_blue {
+    background: #586AA8;
+}
+.weather_white {
+    background: #FDF9F0;
+}
+
+.chart {
+    background: #D2DDED;
+}

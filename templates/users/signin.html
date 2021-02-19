@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/sign.css' %}">
+{% endblock %}
+
+{% block page_name %}
+Login
+{% endblock page_name %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+<form method="POST" class="login-form" action="{% url 'signin' %}">
+    {% csrf_token %}
+    <div class="login-container">
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{request.GET.next}}">
+        {% endif %}
+        <div class="loginbox">
+            <div class="loginbox-title">로그인</div>
+            <div class="loginbox-textbox">
+                <input name="email" type="text" class="form-control" placeholder="이메일">
+            </div>
+            <div class="loginbox-textbox">
+                <input name="password" type="password" class="form-control" placeholder="비밀번호">
+            </div>
+            <div class="loginbox-submit">
+                <input type="submit" class="btn btn-block loginbox-btn" value="로그인">
+            </div>
+            <div class="loginbox-signup">
+                <a href="{% url 'signup' %}">회원가입</a>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+{% endblock content %}

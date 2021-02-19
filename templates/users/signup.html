@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/sign.css' %}">
+{% endblock %}
+
+
+{% block page_name %}
+Signup
+{% endblock page_name %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <form method="POST" class="login-form" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
+                <div class="loginbox bg-white">
+                    <div class="loginbox-title">회원가입</div>
+                    <div class="loginbox-textbox">
+                        <input name="email" type="text" class="form-control" placeholder="이메일">
+                    </div>
+                    <div class="loginbox-textbox">
+                        <input name="password1" type="password" class="form-control" placeholder="비밀번호">
+                    </div>
+                    <div class="loginbox-textbox">
+                        <input name="password2" type="password" class="form-control" placeholder="비밀번호 확인">
+                    </div>
+                    <div class="loginbox-textbox">
+                        <input name="name" type="text" class="form-control" placeholder="이름">
+                    </div>
+                    <div class="loginbox-textbox">
+                        <input name="date_of_birth" type="date" class="form-control" placeholder="생년월일" value="sysdate">
+                    </div>
+                    <div class="loginbox-textbox">
+                        <select name="gender" class="form-control">
+                            <option value="M">남성</option>
+                            <option value="W">여성</option>
+                        </select>
+                    </div>
+                    <div class="loginbox-textbox">
+                        <input name="phone" type="text" class="form-control" placeholder="핸드폰 번호">
+                    </div>
+
+                    <div class="loginbox-textbox">
+                        <input name="address1" type="text" class="form-control" placeholder="시/군/구">
+                    </div>
+                    <div class="loginbox-textbox">
+                        <input name="address2" type="text" class="form-control" placeholder="군/구">
+                    </div>
+                    <div class="loginbox-textbox">
+                        <input name="address3" type="text" class="form-control" placeholder="동/면/읍">
+                    </div>
+
+                    <div class="loginbox-submit">
+                        <input type="submit" class="btn btn-block loginbox-btn" value="회원가입">
+                    </div>
+                    <div class="loginbox-signup">
+                        <a href="{% url 'signin' %}">로그인</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    </form>
+</div>
+</div>
+{% endblock content %}

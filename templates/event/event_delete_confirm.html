@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_name %}
+Event Edit
+{% endblock page_name %}
+
+
+{% block content %}
+
+
+<div class="container pt-3 mt-3">
+    <div class="row justify-content-center">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" class="post=form">
+                    {% csrf_token %}
+                    <p class="card-text"> 정말 삭제하시겠습니까?</p>
+                    <input type="submit" class="save btn btn-primary right mr-2 btn-sm" value="삭제"/>
+                    <a href="{% url 'event-detail' event.pk %}"><input type="button" class="save btn btn-secondary btn-sm" value="취소"/></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
