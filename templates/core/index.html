@@ -24,17 +24,17 @@ Home
       <div class="row pt-3">
         <div class="col-7">
           <div class="text-center">
-            {% if weatherInfo.weather_main == "Clear" %}
+            {% if weatherInfo.main == "Clear" %}
             <img class="w-50" src="{% static 'img/Clear.svg' %}"/>
-            {% elif weatherInfo.weather_main == "Clouds" %}
+            {% elif weatherInfo.main == "Clouds" %}
             <img class="w-50" src="{% static 'img/Clouds.svg' %}" />
-            {% elif weatherInfo.weather_main == "Rain" %}
+            {% elif weatherInfo.main == "Rain" %}
             <img class="w-50" src="{% static 'img/Rain.svg' %}" />
-            {% elif weatherInfo.weather_main == "Drizzle" %}
+            {% elif weatherInfo.main == "Drizzle" %}
             <img class="w-50" src="{% static 'img/Drizzle.svg' %}" />
-            {% elif weatherInfo.weather_main == "Thunderstorm" %}
+            {% elif weatherInfo.main == "Thunderstorm" %}
             <img class="w-50" src="{% static 'img/Thunderstorm.svg' %}" />
-            {% elif weatherInfo.weather_main == "Snow" %}
+            {% elif weatherInfo.main == "Snow" %}
             <img class="w-50" src="{% static 'img/Snow.svg' %}" />
             {% else %}
             <img class="w-50" src="{% static 'img/Etc.svg' %}" />

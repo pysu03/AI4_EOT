@@ -10,9 +10,11 @@ def index(request):
     location = request.GET.get('location', 'seoul')
     context = weather(location)
 
+    
     context['recommend'] = recommend(context['weatherInfo']['temp'])
     context['recommend_music'] = recommend_music(context['weatherInfo']['temp'], context['weatherInfo']['description'])
      
+
     user = request.user.id
     print(request.user)
     d = get_date(request.GET.get('month', None))
