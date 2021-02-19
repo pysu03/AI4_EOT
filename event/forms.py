@@ -15,5 +15,3 @@ class EventForm(ModelForm):
   def __init__(self, *args, **kwargs):
     super(EventForm, self).__init__(*args, **kwargs)
     self.fields['time'].input_formats = ('%Y-%m-%dT%H:%M',)
-
-

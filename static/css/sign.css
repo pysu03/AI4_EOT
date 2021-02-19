@@ -41,3 +41,8 @@
     font-size: 13px;
     color: #666;
 }
+
+.loginbox-btn {
+    background-color: #728adc;
+    color: white;
+}

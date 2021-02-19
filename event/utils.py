@@ -2,6 +2,7 @@
 from calendar import HTMLCalendar
 from .models import Event
 
+
 class Calendar(HTMLCalendar):
     def __init__(self, year=None, month=None):
         self.year = year
@@ -13,7 +14,7 @@ class Calendar(HTMLCalendar):
 
         if user != None:
             events_per_day = events.filter(time__day=day, user=user)
-                
+
             for event in events_per_day:
                 d += f'<li> {event.get_html_url} </li>'
 

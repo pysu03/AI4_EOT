@@ -14,8 +14,6 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from config import my_settings
-
 BASE_DIR = BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -88,7 +86,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -136,12 +134,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
-# Email Verification
-SITE_ID = 1
-EMAIL_BACKEND = my_settings.EMAIL['EMAIL_BACKEND']
-EMAIL_USE_TLS = my_settings.EMAIL['EMAIL_USE_TLS']
-EMAIL_PORT = my_settings.EMAIL['EMAIL_PORT']
-EMAIL_HOST = my_settings.EMAIL['EMAIL_HOST']
-EMAIL_HOST_USER = my_settings.EMAIL['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = my_settings.EMAIL['EMAIL_HOST_PASSWORD']
